@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="styles/app.css">
 </head>
@@ -18,49 +19,219 @@
     <md-content>
         <md-tabs md-dynamic-height="" md-border-bottom="">
 
-            <md-tab label="one">
-                <md-content class="md-padding" ng-controller="TabOne">
-                    <h1 class="md-display-2">About Me</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
-                        felis nec, feugiat ultricies mi.</p>
+            <md-tab label="details">
+                <md-content class="md-padding">
+                    <img src="pic.jpg"></img>
+                    <h1 class="md-display-2">Jigno Alfred V. Venezuela</h1>
+
+                    <h3>Work Experience</h3>
                     <p>
-                        <md-button ng-click="count = count + 1" class="md-raised md-primary">{{title}}</md-button> count: {{count}}</p>
+                        <b>Big Outsource - Laguna</b>
+                        <br><i>I.T. Associate</i>
+                        <br>MARCH 2015 - PRESENT
+                        <ul>
+                            <li>Provides technical expertise and analysis to departmental management and staff.</li>
+                            <li>Extracts and aggregates data from multiple sources.</li>
+                            <li>Perform data management activities and evaluate datasets for data integrity.</li>
+                            <li>Handles and relegates tasks to BSIT and BSCS interns from different schools.</li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        <b>Telus International - Quezon City</b>
+                        <br><i>Technical Support Representative</i>
+                        <br>SEPTEMBER 2013 - APRIL 2014
+                        <ul>
+                            <li>Deliver service and support to end-users regarding issues with Magellan GPS car navigation devices.</li>
+                            <li>Diagnose and resolve technical hardware and software issues.</li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        <b>Stream Global Services - Mandaluyong</b>
+                        <br><i>Tier 2 Technical Support Representative</i>
+                        <br>FEBRUARY 2013 - JUNE 2013
+                        <ul>
+                            <li>Deliver service and support to end-users regarding issues with Microsoft Windows Operating Systems via phone or remote-access.</li>
+                            <li>Diagnose and resolve technical issues involving Microsoft Windows Operating Systems, application software, mail client,  printing systems, networks, computer hardware, and peripheral equipment.</li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        <b>Teleperformance - Makati</b>
+                        <br><i>Technical Support Representative</i>
+                        <br>NOVEMBER 2011 - NOVEMBER 2012
+                        <ul>
+                            <li>Deliver service and support to end-users regarding issues with Star Wars: The Old Republic via phone or remote-access.</li>
+                            <li>Diagnose and resolve technical issues involving installation, compatibility, and connectivity.</li>
+                            <li>Answer customer inquiries regarding account and billing concerns.</li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        <b>Teletech - Lipa, Batangas</b>
+                        <br><i>Technical Support Representative</i>
+                        <br>JUNE 2010 - APRIL 2011
+                        <ul>
+                            <li>Deliver service and support to end-users regarding issues with Hewlett-Packard desktop computers via phone or remote-access.</li>
+                            <li>Diagnose and resolve technical issues involving operating systems, application software, mail client,  printing systems, networks, computer hardware, and peripheral equipment.</li>
+                        </ul>
+                    </p>
                 </md-content>
             </md-tab>
 
-            <md-tab label="two">
+            <md-tab label="skills">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">Tab Two</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
-                        felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue
-                        ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus
-                        in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-                    <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas
-                        enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl
-                        consectetur, rhoncus sapien sit amet, tempus sapien.</p>
-                    <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed
-                        id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-                </md-content>
+                    <h1 class="md-display-2">Languages, Frameworks, Libraries, and Technologies...</h1>
+                    <ul class="progress">
+                        <!--  Item  -->
+                        <li data-name="VB.NET" data-percent="75%">
+                            <svg viewBox="-10 -10 220 220">
+                            <g fill="none" stroke-width="12" transform="translate(100,100)">
+                              <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                              <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                              <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                              <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                              <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                              <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                            </g>
+                          </svg>
+                            <svg viewBox="-10 -10 220 220">
+                            <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="481"></path>
+                          </svg>
+                        </li>
+                        <!--  Item  -->
+                        <li data-name="Python" data-percent="45%">
+                            <svg viewBox="-10 -10 220 220">
+                              <g fill="none" stroke-width="12" transform="translate(100,100)">
+                                <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                                <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                                <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                                <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                                <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                                <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                              </g>
+                            </svg>
+                            <svg viewBox="-10 -10 220 220">
+                              <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="280"></path>
+                            </svg>
+                        </li>
+                        <!--  Item  -->
+                        <li data-name="Javascript" data-percent="80%">
+                            <svg viewBox="-10 -10 220 220">
+                            <g fill="none" stroke-width="9" transform="translate(100,100)">
+                              <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                              <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                              <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                              <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                              <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                              <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                            </g>
+                          </svg>
+                            <svg viewBox="-10 -10 220 220">
+                              <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="521"></path>
+                            </svg>
+                        </li>
+                        <!--  Item  -->
+                        <li data-name="HTML/CSS" data-percent="58%">
+                            <svg viewBox="-10 -10 220 220">
+                              <g fill="none" stroke-width="12" transform="translate(100,100)">
+                                <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                                <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                                <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                                <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                                <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                                <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                              </g>
+                            </svg>
+                            <svg viewBox="-10 -10 220 220">
+                              <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="364"></path>
+                            </svg>
+                        </li>
+                        <!--  Item  -->
+                        <li data-name="PHP" data-percent="30%">
+                            <svg viewBox="-10 -10 220 220">
+                              <g fill="none" stroke-width="12" transform="translate(100,100)">
+                                <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                                <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                                <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                                <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                                <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                                <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                              </g>
+                            </svg>
+                            <svg viewBox="-10 -10 220 220">
+                              <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="181"></path>
+                            </svg>
+                        </li>
+                        <!--  Defining Angle Gradient Colors  -->
+                        <svg width="0" height="0">
+                          <defs>
+                            <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                                <stop stop-color="#618099"/>
+                                <stop offset="100%" stop-color="#8e6677"/>
+                            </linearGradient>
+                            <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+                                <stop stop-color="#8e6677"/>
+                                <stop offset="100%" stop-color="#9b5e67"/>
+                            </linearGradient>
+                            <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1">
+                                <stop stop-color="#9b5e67"/>
+                                <stop offset="100%" stop-color="#9c787a"/>
+                            </linearGradient>
+                            <linearGradient id="cl4" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0">
+                                <stop stop-color="#9c787a"/>
+                                <stop offset="100%" stop-color="#817a94"/>
+                            </linearGradient>
+                            <linearGradient id="cl5" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
+                                <stop stop-color="#817a94"/>
+                                <stop offset="100%" stop-color="#498a98"/>
+                            </linearGradient>
+                            <linearGradient id="cl6" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="0">
+                                <stop stop-color="#498a98"/>
+                                <stop offset="100%" stop-color="#618099"/>
+                            </linearGradient>
+                          </defs>
+                        </svg>
+
+                    <h1 class="md-display-1"></h1>
+                    <ul class="rectangle-list">
+                      <li><a href="">Web Crawling</a></li>
+                      <li><a href="">Data Extraction</a></li>
+                      <li><a href="">Git</a></li>
+                      <li><a href="">Pug</a></li>
+                      <li><a href="">Express.js</a></li>
+                      <li><a href="">Node.js</a></li>
+                      <li><a href="">MongoDB</a></li>
+                      <li><a href="">Google Script</a></li>
+                      <li><a href="">MS SQL</a></li>
+                    </ul>
             </md-tab>
 
-            <md-tab label="three">
-                <md-content class="md-padding">
-                    <h1 class="md-display-2">Tab Three</h1>
-                    <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed
-                        id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+            <md-tab label="contact">
+                <md-content class="md-padding" ng-controller="MyChances">
+                    <p>
+                        <md-button ng-click="chance = chance + 1" class="md-raised md-primary">{{title}}</md-button>Possibility: {{chance}}0%</p>
+                    <h1 class="md-display-2">Get in touch:</h1>
+                    <p>Email: jigzimon@gmail.com</p>
+                    <p>Phone: 09260118502</p>
+
+                    <a href="https://www.facebook.com/jigzimon" target="_blank"><i class="fa fa-facebook-square fa-4x"></i></a>
+                    <a href="https://github.com/iamjigz"> <i class="fa fa-github-alt fa-4x"></i></a>
+                    <a href="http://codepen.io/iamjigz/"> <i class="fa fa-codepen fa-4x"></i></a>
+                    <a href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela"><i class="fa fa-stack-overflow fa-4x"></i></a>
                 </md-content>
             </md-tab>
         </md-tabs>
-    </md-content>
+        </md-content>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
-    <script src="scripts/app.js"></script>
-
+        <script src="scripts/app.js"></script>
 </body>
 
 </html>

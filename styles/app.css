@@ -1,9 +1,161 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400);
+
+@keyframes load {
+	0% {
+		stroke-dashoffset: 0;
+	}
+}
+
 html {
   background: #eee;
 }
 
 body {
   line-height: 1.4;
-  max-width: 500px;
+  max-width: 650px;
   margin: 20px auto;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+fa {
+  width: 100px;
+  height: 100px;
+}
+
+
+.progress {
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	text-align: center;
+}
+
+.progress > li {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	color: #93A2AC;
+	font-family: Lato;
+	font-weight: 100;
+	margin: 1rem;
+}
+
+.progress > li:before {
+	content: attr(data-name);
+	position: absolute;
+	width: 100%;
+	bottom: -2rem;
+	font-weight: 400;
+}
+
+.progress > li:after {
+	content: attr(data-percent);
+	position: absolute;
+	width: 100%;
+	top: 2rem;
+	left: 0;
+	font-size: 1rem;
+	text-align: center;
+}
+
+.progress svg {
+	width: 5rem;
+	height: 5rem;
+}
+
+.progress svg:nth-child(2) {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform: rotate(-90deg);
+}
+
+.progress svg:nth-child(2) path {
+	fill: none;
+	stroke-width: 25;
+	stroke-dasharray: 629;
+	stroke: #fff;
+	opacity: .9;
+	animation: load 10s;
+}
+
+
+ul {
+counter-reset: li;
+list-style: none;
+font: 15px 'trebuchet MS', 'lucida sans';
+padding: 0;
+margin-bottom: 4em;
+text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+ul {
+display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 40px;
+}
+
+li {
+display: list-item;
+text-align: -webkit-match-parent;
+}
+
+.rectangle-list a {
+position: relative;
+display: block;
+padding: .4em .4em .4em .8em;
+margin: .5em 0 .5em 2.5em;
+background: #ddd;
+color: #444;
+text-decoration: none;
+-webkit-transition: all .3s ease-out;
+-moz-transition: all .3s ease-out;
+-ms-transition: all .3s ease-out;
+-o-transition: all .3s ease-out;
+transition: all .3s ease-out;
+}
+
+.rectangle-list a:before {
+content: counter(li);
+counter-increment: li;
+position: absolute;
+left: -2.5em;
+top: 50%;
+margin-top: -1em;
+background: #fa8072;
+height: 2em;
+width: 2em;
+line-height: 2em;
+text-align: center;
+font-weight: bold;
+}
+
+.rectangle-list a:after {
+position: absolute;
+content: '';
+border: .5em solid transparent;
+left: -1em;
+top: 50%;
+margin-top: -.5em;
+-webkit-transition: all .3s ease-out;
+-moz-transition: all .3s ease-out;
+-ms-transition: all .3s ease-out;
+-o-transition: all .3s ease-out;
+transition: all .3s ease-out;
+}
+
+.rectangle-list a:hover {
+background: #eee;
+}
+
+.rectangle-list a:hover:after {
+left: -.5em;
+border-left-color: #fa8072;
 }

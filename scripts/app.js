@@ -1,5 +1,5 @@
 angular.module("portfolioPage", ["ngMaterial"])
 
-  .controller("TabOne", function($scope) {
-    $scope.title = "Count Upwards";
+  .controller("MyChances", function($scope) {
+    $scope.title = "My chances of getting hired?";
   });
