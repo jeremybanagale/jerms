@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css">
 
     <link rel="stylesheet" href="styles/app.css">
 </head>
@@ -24,6 +25,17 @@
                     <h1 class="md-display-2">Jigno Alfred V. Venezuela</h1>
 
                     <h3>Work Experience</h3>
+                    <!-- <div ng-controller="workCtrl" >
+                      <p ng-repeat="exp in exps">
+                          <b>{{exp.company}}</b>
+                          <br><b>{{exp.location}}</b>
+                          <br><i>{{exp.title}}</i>
+                          <br>{{exp.period}}
+                          <ul ng-repeat="e in exp.tasks">
+                              <li>{{e}}</li>
+                          </ul>
+                      </p>
+                    </div> -->
                     <p>
                         <b>Big Outsource - Laguna</b>
                         <br><i>I.T. Associate</i>
@@ -81,11 +93,9 @@
 
             <md-tab label="skills">
                 <md-content class="md-padding" ng-controller="chartCtrl">
-                    <h1 class="md-display-2">Languages, Frameworks, Libraries, and Technologies...</h1>
                     <ul class="progress">
-                        <!--  Item  -->
                         <li ng-repeat="language in languages" data-name={{language.name}} data-percent={{language.percent}}>
-                          <svg viewBox="-10 -10 220 220">
+                            <svg viewBox="-10 -10 220 220">
                             <g fill="none" stroke-width="12" transform="translate(100,100)">
                               <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
                               <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
@@ -95,12 +105,11 @@
                               <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
                             </g>
                           </svg>
-                          <svg viewBox="-10 -10 220 220">
+                            <svg viewBox="-10 -10 220 220">
                             <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset={{language.offset}}></path>
                           </svg>
                         </li>
 
-                        <!--  Defining Angle Gradient Colors  -->
                         <svg width="0" height="0">
                           <defs>
                             <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
@@ -130,11 +139,36 @@
                           </defs>
                         </svg>
 
+                        <h1 class="md-display-1">Frameworks, Libraries, and Technologies...</h1>
                         <div ng-controller="listCtrl">
-                            <ul class="rectangle-list">
-                                <li ng-repeat="name in response.text"><a href="#">{{name}}</a></li>
-                            </ul>
+                          <input type="text" placeholder="See if I have the skill" ng-model="searchText">
+                          <ul class="rectangle-list">
+                              <li ng-repeat="skill in skills | filter:searchText"><a href={{skill.url}} target="blank">{{skill.name}}</a></li>
+                          </ul>
                         </div>
+                </md-content>
+            </md-tab>
+
+            <md-tab label="Samples">
+                <md-content class="md-padding" ng-controller="wikiCtrl">
+                    <h5 class="md-display-1">Wikipedia Search</h5>
+                    <div id="content">
+                        <div id="control">
+                            <div class="ui right action left icon input">
+                                <input id="search" type="text" placeholder="Search Wikipedia" ng-model="query">
+                                <i class="big icon search"></i>
+                                <button onclick="location.href='https://en.wikipedia.org/wiki/Special:Random';" class="ui teal right labeled icon button">
+                                <i class="random icon"></i>
+                                Surprise Me!
+                            </button>
+                            </div>
+                        </div>
+                        <div class="ui raised segment" ng-repeat='data in wikiData'>
+                            <h4 class="ui header">{{data.name}}</h4>
+                            <p>{{data.snip}}</p><a href="{{data.link}}">Read More <i class="small external icon"></i></a>
+                        </div>
+                    </div>
+                    <h5 class="md-display-1">Coming Soon...</h5>
                 </md-content>
             </md-tab>
 
@@ -156,6 +190,7 @@
     </md-content>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-resource.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
