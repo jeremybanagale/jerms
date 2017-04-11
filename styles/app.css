@@ -1,9 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100,400);
 @keyframes load {
     0% {
         stroke-dashoffset: 0;
     }
 }
+
+/* ----- GLOBAL -------- */
 
 html {
     background: #eee;
@@ -20,11 +21,46 @@ img {
     height: 150px;
 }
 
-fa {
-    width: 100px;
-    height: 100px;
+.fa {
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+    margin-left: auto;
+    cursor: pointer;
 }
 
+.fa i:hover {
+  color: rgb(255, 87, 34);
+}
+
+.fa i {
+  transition: transform 500ms linear;
+  font-size: 28px;
+}
+
+ul {
+    counter-reset: li;
+    list-style: none;
+    font: 15px 'trebuchet MS', 'lucida sans';
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+#info {
+  float: right;
+}
+/* ----- SKILLS PROGRESS -------- */
 .progress {
     position: relative;
     display: inline-block;
@@ -81,83 +117,8 @@ fa {
     animation: load 10s;
 }
 
-ul {
-    counter-reset: li;
-    list-style: none;
-    font: 15px 'trebuchet MS', 'lucida sans';
-    padding: 0;
-    margin-bottom: 4em;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-}
-
-ul {
-    display: block;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
-}
-
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-
-.rectangle-list a {
-    position: relative;
-    display: block;
-    padding: .4em .4em .4em .8em;
-    margin: .5em 0 .5em 2.5em;
-    background: #ddd;
-    color: #444;
-    text-decoration: none;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-    -ms-transition: all .3s ease-out;
-    -o-transition: all .3s ease-out;
-    transition: all .3s ease-out;
-}
-
-.rectangle-list a:before {
-    content: counter(li);
-    counter-increment: li;
-    position: absolute;
-    left: -2.5em;
-    top: 50%;
-    margin-top: -1em;
-    background: #fa8072;
-    height: 2em;
-    width: 2em;
-    line-height: 2em;
-    text-align: center;
-    font-weight: bold;
-}
-
-.rectangle-list a:after {
-    position: absolute;
-    content: '';
-    border: .5em solid transparent;
-    left: -1em;
-    top: 50%;
-    margin-top: -.5em;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-    -ms-transition: all .3s ease-out;
-    -o-transition: all .3s ease-out;
-    transition: all .3s ease-out;
-}
-
-.rectangle-list a:hover {
-    background: #eee;
-}
-
-.rectangle-list a:hover:after {
-    left: -.5em;
-    border-left-color: #fa8072;
-}
-
-input[type=text] {
+/* ----- SKILL LIST -------- */
+#skill-search {
     font-size: 20px;
     height: 50px;
     width: 500px;
@@ -165,6 +126,72 @@ input[type=text] {
     background-color: rgba(255, 255, 255, 0.65) !important;
 }
 
+.example-animate-container {
+    background: #ececec;
+    list-style:none;
+    margin:0;
+    padding:0 10px;
+}
+
+.animate-repeat {
+    line-height:40px;
+    list-style:none;
+    /*box-sizing:border-box;*/
+    border-bottom: 1px solid white;
+    -webkit-transition: 1s linear all;
+    transition: 1s linear all;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+    opacity:0;
+    max-height:0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+    opacity:1;
+    max-height:40px;
+}
+
+/**
+ * Stagger Leave (hide) animation
+ */
+.animate-repeat.ng-leave-stagger {
+    /* this will have a 100ms delay between each successive leave animation */
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+    /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
+/**
+ * Stagger ENTER ANIMATION
+ */
+.animate-repeat.ng-enter-stagger {
+    /* this will have a 100ms delay between each successive enter animation */
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+    /* in case the stagger doesn't work then these two values
+     must be set to 0 to avoid an accidental CSS inheritance */
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
+/* ----- WIKI -------- */
 #content {
     max-width: 800px;
     margin: auto auto;
@@ -189,6 +216,7 @@ input[type=text] {
     color: white;
 }
 
+/* ----- CARDS -------- */
 .card-loc .card-media, .card-dt .card-media, .card-weather .card-media, .card-color .card-media {
     text-align: center;
     font-family: monospace;
@@ -198,22 +226,6 @@ input[type=text] {
 
 .card-profile .card-media {
     text-align: center;
-}
-
-.fa {
-    -webkit-align-self: flex-start;
-    align-self: flex-start;
-    margin-left: auto;
-    cursor: pointer;
-}
-
-.fa i:hover {
-  color: rgb(255, 87, 34);
-}
-
-.fa i {
-  transition: transform 500ms linear;
-  font-size: 28px;
 }
 
 .date-time {
@@ -302,23 +314,7 @@ input[type=text] {
     width: auto;
 }
 
-.footer {
-    bottom: 0px;
-    width: 100%;
-    font-family: monospace;
-    padding-bottom: 0px;
-    text-align: center;
-    font-size: 12.5px;
-}
-
-.footer .heart {
-    color: red;
-    top: 5px;
-    position: relative;
-}
-
-
-/* ----- colors -------- */
+/* ----- CARD COLORS -------- */
 
 .card-dt, .card-dt .card-media {
     background-color: #CDDC39;
@@ -341,8 +337,7 @@ input[type=text] {
 }
 
 
-/* ----- class codes ----- */
-
+/* ----- CARD CLASS CODES ----- */
 .card .card-media {
     background-color: inherit;
 }

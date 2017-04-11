@@ -112,8 +112,8 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource"])
     .controller('chartCtrl', function($scope) {
         $scope.languages = [{
             name: "PHP",
-            percent: "30%",
-            offset: '181'
+            percent: "60%",
+            offset: '351'
         }, {
             name: "VB.NET",
             percent: "75%",

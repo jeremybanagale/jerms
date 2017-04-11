@@ -7,9 +7,11 @@
     <title>Portfolio Page</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css">
 
     <link rel="stylesheet" href="styles/app.css">
@@ -22,9 +24,15 @@
             <md-tab label="details">
                 <md-content class="md-padding">
                     <img src="pic.jpg"></img>
-                    <h1 class="md-display-2">Jigno Alfred V. Venezuela</h1>
+                    <div id="info" layout="column" layout-align="end">
+                        <h1 class=".md-display-2">Jigno Alfred V. Venezuela</h1>
+                        <p class="md-subhead">Age: 30
+                            <br>Location: Santo Tomas, Batangas
+                            <br>Mobile: +639260118502
+                            <br>Email: jigzimon@gmail.com</p>
+                    </div>
 
-                    <h3>Work Experience</h3>
+                    <h3 class=".md-headline">Work Experience</h3>
                     <div ng-controller="workCtrl">
                         <p ng-repeat-start="exp in exps">
                             <b>{{exp.company}}</b>
@@ -89,12 +97,17 @@
                         </svg>
 
                         <h1 class="md-display-1">Frameworks, Libraries, and Technologies...</h1>
-                        <div ng-controller="listCtrl">
-                            <input type="text" placeholder="See if I have the skill..." ng-model="searchText">
-                            <ul class="rectangle-list">
-                                <li ng-repeat="skill in skills | filter:searchText"><a href={{skill.url}} target="blank">{{skill.name}}</a></li>
+                        <form class="form-search" ng-controller="listCtrl">
+                            <div class="input-append">
+                                <input id="skill-search" type="text" ng-model="search" placeholder="Search user" class="form-control">
+                            </div>
+
+                            <ul class="example-animate-container">
+                                <li class="animate-repeat" ng-repeat="skill in skills | filter:search">
+                                    <a href={{skill.url}} target="blank">{{skill.name}}</a>
+                                </li>
                             </ul>
-                        </div>
+                        </form>
                 </md-content>
             </md-tab>
 
@@ -121,39 +134,79 @@
 
             <md-tab label="cards">
                 <md-content class="md-padding">
-                    <div class="card shadow--4dp card-loc" ng-controller="locationCtrl">
-                        <div class="card-title">
-                            <h2 class="card-title-text">
-                          <i class="fa fa-compass material-icons" ng-click="getLoc()"></i> You are in:</h2>
-                        </div>
+                    <md-card class="card shadow--4dp card-loc" ng-controller="locationCtrl">
+                        <md-card-header>
+                            <md-card-header-text>
+                                <i class="fa fa-compass material-icons" ng-click="getLoc()"></i>
+                                <span class="md-title">You are in:</span>
+                                <div ng-show="myLoc">
+                                    {{myLoc.query}}
+                                    <br>{{myLoc.city}}, {{myLoc.regionName}}
+                                </div>
+                            </md-card-header-text>
+                        </md-card-header>
+                    </md-card>
 
-                        <div class="card-media">
-                            <div class="line-breaker"></div>
-                            <div class="spinner js-spinner is-active" ng-show="!myLoc"></div>
-                            <div ng-show="myLoc">
-                                {{myLoc.query}}<br> {{myLoc.city}}, {{myLoc.regionName}}
-                            </div>
-                        </div>
-                    </div>
+                    <md-card class="card shadow--4dp card-weather" ng-controller="weatherCtrl">
+                        <md-card-header>
+                            <md-card-header-text>
+                                <i class="fa fa-sun-o material-icons" ng-click="getWeather()"></i>
+                                <span class="md-title">Going out?</span>
+                                <div ng-show="wForecast">
+                                    <span>Forecast: {{wForecast.abs.description}}</span>
+                                    <br>Humidity: {{wForecast.humidity}}
+                                    <br>Temp: {{wForecast.temp + 'C'}}
+                                </div>
+                            </md-card-header-text>
+                        </md-card-header>
+                    </md-card>
 
-                    <div class="card shadow--4dp card-weather" ng-controller="weatherCtrl">
-                        <div class="card-title">
-                            <h2 class="card-title-text">
-                              <i class="fa fa-sun-o material-icons" ng-click="getWeather()"></i> Going out?</h2>
-                        </div>
+                    <md-card class="card shadow--4dp card-todo" ng-controller="todoCtrl">
+                        <md-card-header>
+                            <md-card-header-text>
+                                <span class="md-title">Get Stuff Done!</span>
+                                <md-button class="fa fa-plus material-icons" ng-click="toggleForm()"> Add</md-button>
+                                <md-button class="fa fa-trash material-icons" ng-click="clearDoneItems()"> Delete</md-button>
 
-                        <div class="card-media">
-                            <div class="line-breaker"></div>
-                            <div class="spinner js-spinner is-active" ng-show="!wForecast"></div>
-                            <div ng-show="wForecast">
-                                <span>{{wForecast.abs.description}}</span>
-                                <br>Humidity: {{wForecast.humidity}}
-                                <br> Temp: {{wForecast.temp + 'C'}}
-                            </div>
-                        </div>
-                    </div>
+                                <md-card-content>
+                                    <div id="list-view" ng-hide="addMode">
+                                        <md-list>
+                                            <md-list-item class="md-2-line td-li item-done-{{item.done}}" ng-model="toDoList" ng-repeat="item in toDoList track by $index">
+                                                <label class="checkbox js-checkbox js-ripple-effect" for="checkbox-{{$index}}">
+                                                   <md-checkbox class="checkbox__input" id="checkbox-{{$index}}" aria-label="checkbox" ng-model="item.done"></md-checkbox>
+                                                   <span class="checkbox__label">{{item.desc}}</span>
+                                                </label>
+                                                <div class="item-due-date" ng-show="item.due">Due: {{item.due | date}} </div>
+                                                <div class="item-due-date" ng-show="item.dt">Added: {{item.dt | date:'MMM dd, yyyy' }} </div>
+                                            </md-list-item>
+                                        </md-list>
+                                    </div>
 
-                    <div class="card shadow--4dp card-todo" ng-controller="todoCtrl">
+                                    <div id="add-view" ng-show="addMode">
+                                        <form name="addNewForm">
+                                            <md-input-container>
+                                                <input class="textfield__input" name="itemDesc" type="text" id="td-desc" ng-model="newItem.desc" required>
+                                                <label class="textfield__label" style="color:rgb(55, 33, 10);" for="td-desc">Description...</label>
+                                            </md-input-container>
+
+                                            <div class="textfield js-textfield textfield--floating-label">
+                                                <md-datepicker id="td-due" ng-model="newItem.due"></md-datepicker>
+                                                <label class="textfield__label" style="color: rgba(0,0,0,0.0);" for="td-due">Due Date...</label>
+                                            </div>
+                                            <br/>
+                                            <button class="button js-button button--raised button--colored js-ripple-effect" ng-click="addItem()" ng-disabled='!addNewForm.itemDesc.$valid'>ADD</button>
+                                        </form>
+                                    </div>
+                                    <div class="card-supporting-text">
+                                    </div>
+                                    <div class="card-actions">
+                                    </div>
+                                </md-card-content>
+                            </md-card-header-text>
+                        </md-card-header>
+                    </md-card>
+
+                    <!-- <div class="card shadow--4dp card-todo" ng-controller="todoCtrl">
                         <div class="card-title">
                             <h2 class="card-title-text">Get Stuff Done!</h2>
                             <span class="add-ico">
@@ -196,7 +249,7 @@
                         </div>
                         <div class="card-actions">
                         </div>
-                    </div>
+                    </div> -->
                 </md-content>
             </md-tab>
 
