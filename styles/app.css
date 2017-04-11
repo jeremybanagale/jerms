@@ -26,7 +26,6 @@ fa {
   height: 100px;
 }
 
-
 .progress {
 	position: relative;
 	display: inline-block;
@@ -164,6 +163,7 @@ input[type=text] {
    font-size: 20px;
    height: 50px;
    width: 500px;
+   text-align: center;
    background-color: rgba(255, 255, 255, 0.65) !important;
 }
 
@@ -175,6 +175,7 @@ input[type=text] {
 #search {
    font-size: 30px;
    height: 70px;
+   width: 400px;
    background-color: rgba(255, 255, 255, 0.65) !important;
 }
 

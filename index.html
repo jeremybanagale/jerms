@@ -25,69 +25,18 @@
                     <h1 class="md-display-2">Jigno Alfred V. Venezuela</h1>
 
                     <h3>Work Experience</h3>
-                    <!-- <div ng-controller="workCtrl" >
-                      <p ng-repeat="exp in exps">
-                          <b>{{exp.company}}</b>
-                          <br><b>{{exp.location}}</b>
-                          <br><i>{{exp.title}}</i>
-                          <br>{{exp.period}}
-                          <ul ng-repeat="e in exp.tasks">
-                              <li>{{e}}</li>
-                          </ul>
-                      </p>
-                    </div> -->
-                    <p>
-                        <b>Big Outsource - Laguna</b>
-                        <br><i>I.T. Associate</i>
-                        <br>MARCH 2015 - PRESENT
-                        <ul>
-                            <li>Provides technical expertise and analysis to departmental management and staff.</li>
-                            <li>Extracts and aggregates data from multiple sources.</li>
-                            <li>Perform data management activities and evaluate datasets for data integrity.</li>
-                            <li>Handles and relegates tasks to BSIT and BSCS interns from different schools.</li>
-                        </ul>
-                    </p>
-
-                    <p>
-                        <b>Telus International - Quezon City</b>
-                        <br><i>Technical Support Representative</i>
-                        <br>SEPTEMBER 2013 - APRIL 2014
-                        <ul>
-                            <li>Deliver service and support to end-users regarding issues with Magellan GPS car navigation devices.</li>
-                            <li>Diagnose and resolve technical hardware and software issues.</li>
-                        </ul>
-                    </p>
-
-                    <p>
-                        <b>Stream Global Services - Mandaluyong</b>
-                        <br><i>Tier 2 Technical Support Representative</i>
-                        <br>FEBRUARY 2013 - JUNE 2013
-                        <ul>
-                            <li>Deliver service and support to end-users regarding issues with Microsoft Windows Operating Systems via phone or remote-access.</li>
-                            <li>Diagnose and resolve technical issues involving Microsoft Windows Operating Systems, application software, mail client, printing systems, networks, computer hardware, and peripheral equipment.</li>
-                        </ul>
-                    </p>
-
-                    <p>
-                        <b>Teleperformance - Makati</b>
-                        <br><i>Technical Support Representative</i>
-                        <br>NOVEMBER 2011 - NOVEMBER 2012
-                        <ul>
-                            <li>Deliver service and support to end-users regarding issues with Star Wars: The Old Republic via phone or remote-access.</li>
-                            <li>Diagnose and resolve technical issues involving installation, compatibility, and connectivity.</li>
-                            <li>Answer customer inquiries regarding account and billing concerns.</li>
-                        </ul>
-                    </p>
-
-                    <p>
-                        <b>Teletech - Lipa, Batangas</b>
-                        <br><i>Technical Support Representative</i>
-                        <br>JUNE 2010 - APRIL 2011
-                        <ul>
-                            <li>Deliver service and support to end-users regarding issues with Hewlett-Packard desktop computers via phone or remote-access.</li>
-                            <li>Diagnose and resolve technical issues involving operating systems, application software, mail client, printing systems, networks, computer hardware, and peripheral equipment.</li>
-                        </ul>
-                    </p>
+                    <div ng-controller="workCtrl">
+                        <p ng-repeat-start="exp in exps">
+                            <b>{{exp.company}}</b>
+                            <br><b>{{exp.location}}</b>
+                            <br><i>{{exp.title}}</i>
+                            <br>{{exp.period}}
+                            <ul>
+                                <li ng-repeat="task in exp.tasks">{{task.task}}</li>
+                            </ul>
+                        </p>
+                        <div ng-repeat-end></div>
+                    </div>
                 </md-content>
             </md-tab>
 
@@ -141,10 +90,10 @@
 
                         <h1 class="md-display-1">Frameworks, Libraries, and Technologies...</h1>
                         <div ng-controller="listCtrl">
-                          <input type="text" placeholder="See if I have the skill" ng-model="searchText">
-                          <ul class="rectangle-list">
-                              <li ng-repeat="skill in skills | filter:searchText"><a href={{skill.url}} target="blank">{{skill.name}}</a></li>
-                          </ul>
+                            <input type="text" placeholder="See if I have the skill..." ng-model="searchText">
+                            <ul class="rectangle-list">
+                                <li ng-repeat="skill in skills | filter:searchText"><a href={{skill.url}} target="blank">{{skill.name}}</a></li>
+                            </ul>
                         </div>
                 </md-content>
             </md-tab>
@@ -174,16 +123,15 @@
 
             <md-tab label="contact">
                 <md-content class="md-padding" ng-controller="chanceCtrl">
+                    <p>Email: jigzimon@gmail.com</p>
+                    <p>Phone: +639260118502</p>
                     <p>
                         <md-button ng-click="chance = chance + 1" class="md-raised md-primary">{{title}}</md-button>Possibility: {{chance}}0%</p>
-                    <h1 class="md-display-2">Get in touch:</h1>
-                    <p>Email: jigzimon@gmail.com</p>
-                    <p>Phone: 09260118502</p>
 
                     <a href="https://www.facebook.com/jigzimon" target="_blank"><i class="fa fa-facebook-square fa-4x"></i></a>
-                    <a href="https://github.com/iamjigz"> <i class="fa fa-github-alt fa-4x"></i></a>
-                    <a href="http://codepen.io/iamjigz/"> <i class="fa fa-codepen fa-4x"></i></a>
-                    <a href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela"><i class="fa fa-stack-overflow fa-4x"></i></a>
+                    <a href="https://github.com/iamjigz" target="_blank"> <i class="fa fa-github-alt fa-4x"></i></a>
+                    <a href="http://codepen.io/iamjigz/" target="_blank"> <i class="fa fa-codepen fa-4x"></i></a>
+                    <a href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela" target="_blank"><i class="fa fa-stack-overflow fa-4x"></i></a>
                 </md-content>
             </md-tab>
         </md-tabs>
