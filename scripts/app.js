@@ -214,7 +214,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource"])
         };
     })
 
-    .controller('toDoCard', function($scope, $rootScope, $timeout) {
+    .controller('todoCtrl', function($scope, $rootScope, $timeout) {
         var today = curDate();
         loadList(); // load from local storage
 
