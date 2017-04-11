@@ -205,51 +205,6 @@
                             </md-card-header-text>
                         </md-card-header>
                     </md-card>
-
-                    <!-- <div class="card shadow--4dp card-todo" ng-controller="todoCtrl">
-                        <div class="card-title">
-                            <h2 class="card-title-text">Get Stuff Done!</h2>
-                            <span class="add-ico">
-                           Add <i class="fa fa-plus material-icons" ng-click="toggleForm()"></i>
-                           Delete <i class="fa fa-trash material-icons" ng-click="clearDoneItems()"></i>
-                         </span>
-                        </div>
-                        <div class="card-media" id="list-view" ng-hide="addMode">
-                            <div class="line-breaker"></div>
-                            <ul>
-                                <li class="td-li item-done-{{item.done}}" ng-model="toDoList" ng-repeat="item in toDoList track by $index">
-                                    <label class="checkbox js-checkbox js-ripple-effect" for="checkbox-{{$index}}">
-                             <input type="checkbox" id="checkbox-{{$index}}" class="checkbox__input" ng-model="item.done">
-                             <span class="checkbox__label">{{item.desc}}</span>
-                             </label>
-                                    <div class="item-due-date" ng-show="item.due">Due: {{item.due | date}} </div>
-                                    <div class="item-due-date" ng-show="item.dt">Added: {{item.dt | date:'MMM dd, yyyy' }} </div>
-                                    <div class="line-breaker tdl"></div>
-                                </li>
-                                <ul>
-                        </div>
-                        <div class="card-media" id="add-view" ng-show="addMode">
-                            <div class="line-breaker"></div>
-                            <form name="addNewForm">
-                                <div class="textfield js-textfield textfield--floating-label">
-                                    <input class="textfield__input" name="itemDesc" type="text" id="td-desc" ng-model="newItem.desc" required>
-                                    <label class="textfield__label" style="color:rgb(55, 33, 10);" for="td-desc">Description...</label>
-                                </div>
-
-                                <br/>
-                                <div class="textfield js-textfield textfield--floating-label">
-                                    <input class="textfield__input" type="date" id="td-due" ng-model="newItem.due">
-                                    <label class="textfield__label" style="color: rgba(0,0,0,0.0);" for="td-due">Due Date...</label>
-                                </div>
-                                <br/>
-                                <button class="button js-button button--raised button--colored js-ripple-effect" ng-click="addItem()" ng-disabled='!addNewForm.itemDesc.$valid'>ADD</button>
-                            </form>
-                        </div>
-                        <div class="card-supporting-text">
-                        </div>
-                        <div class="card-actions">
-                        </div>
-                    </div> -->
                 </md-content>
             </md-tab>
 
