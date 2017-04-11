@@ -163,3 +163,150 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource"])
             }
         })
     })
+
+    .controller('locationCtrl', function($scope, $http, $rootScope) {
+        $scope.getLoc = function() {
+            $scope.myLoc = '';
+            //jsonp is required for cross origin requests.
+            $http.jsonp("http://ip-api.com/json/?callback=JSON_CALLBACK").
+            success(function(data) {
+                $scope.myLoc = data;
+                console.log('data', data);
+                $rootScope.loc = {
+                    'lat': $scope.myLoc.lat,
+                    'lon': $scope.myLoc.lon
+                };
+                //update weather now that we have location
+                $rootScope.$emit('updateWeather');
+            }).
+            error(function(data) {
+                $scope.myLoc = "Request failed";
+            });
+        };
+
+        $scope.getLoc();
+    })
+
+    .controller('weatherCtrl', function($scope, $http, $rootScope) {
+        //allow cross controller calls.
+        $rootScope.$on('updateWeather', function() {
+            $scope.getWeather();
+        });
+
+        $scope.getWeather = function() {
+            $scope.wForecast = '';
+            var city = $rootScope.loc;
+            $http.jsonp("http://api.openweathermap.org/data/2.5/weather?lat=" + city.lat + "&lon=" + city.lon + "&units=metric&appid=907c6fe2c953ace0643a570472baef1a&callback=JSON_CALLBACK", {
+                dataType: 'json'
+            }).
+            success(function(data) {
+                $scope.wForecast = {
+                    'humidity': data.main.humidity,
+                    'temp': data.main.temp,
+                    'abs': data.weather[0]
+                };
+                console.log('data', data);
+            }).
+            error(function(data) {
+                $scope.woeid = "Request failed";
+                console.log('data', data);
+            });
+        };
+    })
+
+    .controller('toDoCard', function($scope, $rootScope, $timeout) {
+        var today = curDate();
+        loadList(); // load from local storage
+
+        if (!$scope.toDoList) {
+            //dummy values
+            $scope.toDoList = [{
+                desc: 'Create portfolio...',
+                done: true,
+                due: '',
+                dt: today
+            }, {
+                desc: 'Send CV and portfolio!',
+                done: false,
+                due: 'Apr 30, 2017',
+                dt: today
+            }, {
+                desc: 'Pray daily...',
+                done: false,
+                due: '',
+                dt: today
+            }];
+        };
+
+        //defaults
+        $scope.addMode = false;
+        $scope.newItem = {
+            desc: '',
+            done: false,
+            due: '',
+            dt: today
+        };
+
+        //add new item to list
+        $scope.addItem = function() {
+            $scope.toDoList.push($scope.newItem);
+            $scope.newItem = {
+                desc: '',
+                done: false,
+                due: '',
+                dt: curDate()
+            };
+            $scope.toggleForm();
+            saveList();
+        };
+
+        //toggle add/view mode
+        $scope.toggleForm = function() {
+            $scope.addMode = !$scope.addMode;
+        };
+
+        //clear completed items
+        $scope.clearDoneItems = function() {
+            var curList = $scope.toDoList;
+            $scope.toDoList = [];
+            angular.forEach(curList, function(item) {
+                if (!item.done) {
+                    console.log('sss', item);
+                    $scope.toDoList.push(item);
+                }
+            });
+            //Temp workaround. Manual delete from local storage if still fail.
+            document.querySelector('.is-checked').MaterialCheckbox.uncheck();
+            saveList();
+        };
+
+        function saveList() {
+            localStorage.setItem('toDoList', JSON.stringify($scope.toDoList));
+            toastThis('Data saved on browser storage.')
+        }
+
+        function loadList() {
+            var x = localStorage.getItem('toDoList');
+            if (x != null) {
+                $scope.toDoList = JSON.parse(x);
+            }
+            toastThis('Data loaded from browser storage.');
+        }
+
+        function curDate() {
+            var n = Date.now();
+            return n;
+        };
+
+        //toast status messages
+        function toastThis(msg) {
+            $rootScope.toast = {
+                msg: msg,
+                show: true
+            };
+            $timeout(function() {
+                $rootScope.toast.show = false;
+            }, 2000);
+        }
+
+    })
