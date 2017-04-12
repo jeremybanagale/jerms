@@ -308,5 +308,10 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
                 $rootScope.toast.show = false;
             }, 2000);
         }
+    })
 
+    .config(function($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('green')
+            .accentPalette('orange');
     })
