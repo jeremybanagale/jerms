@@ -190,7 +190,8 @@
             </md-tab>
 
             <md-tab label="cards">
-                <md-content class="md-padding">
+              <md-content class="md-padding" layout-xs="column" layout="row">
+                  <div flex-xs="" layout="column">
                     <md-grid-list md-cols="2" md-gutter="1em" md-row-height="4:3">
                         <md-grid-tile>
                             <md-card class="card-loc" ng-controller="locationCtrl" md-colors="::{backgroundColor: 'default-primary-500'}">
@@ -288,6 +289,7 @@
                             </form>
                         </md-card-content>
                     </md-card>
+                  </div>
                 </md-content>
             </md-tab>
 
