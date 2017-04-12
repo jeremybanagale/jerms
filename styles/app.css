@@ -12,7 +12,7 @@ html {
 
 body {
     line-height: 1.4;
-    max-width: 650px;
+    max-width: 700px;
     margin: 20px auto;
 }
 
@@ -191,30 +191,6 @@ li {
     transition-duration: 0s;
 }
 
-/* ----- WIKI -------- */
-#content {
-    max-width: 800px;
-    margin: auto auto;
-}
-
-#search {
-    font-size: 30px;
-    height: 70px;
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.65) !important;
-}
-
-#control {
-    margin: 20px auto;
-    display: flex;
-    flex-direction: row;
-    max-width: 600px;
-}
-
-#random {
-    text-align: center;
-    color: white;
-}
 
 /* ----- CARDS -------- */
 .card-loc .card-media, .card-dt .card-media, .card-weather .card-media, .card-color .card-media {
@@ -224,47 +200,9 @@ li {
     line-height: 1.5;
 }
 
-.card-profile .card-media {
-    text-align: center;
-}
-
-.date-time {
-    font-size: 22px;
-    padding: 10px;
-    text-align: center;
-}
-
-.line-breaker {
-    border: 1px solid #555;
-    margin: 10px 1px;
-}
-
-.line-breaker.tdl {
-    border: 0.5px solid #FFC107;
-    margin-right: 15px;
-}
-
-.spacer {
-    margin: 20px;
-}
-
-.card-todo {
-    width: auto;
-    font-family: 'Arimo', sans-serif;
-    padding: 1px;
-}
-
-.card-todo ul {
-    padding-left: 15px;
-}
-
 .td-li {
     list-style: none;
     margin-bottom: 10px;
-}
-
-.ico-anim-true {
-    transform: rotate(135deg);
 }
 
 #add-view {
@@ -290,20 +228,6 @@ li {
     color: #4527A0;
     display: inline-block;
     text-decoration: inherit;
-}
-
-.lead-msg {
-    font-family: 'Arimo', sans-serif;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-size: 18px;
-}
-
-.lead-msg .material-icons {
-    position: relative;
-    top: 5px;
-    font-size: 35px;
-    color: #795548;
 }
 
 .is-focused .textfield__label, .is-dirty .textfield__label {

@@ -1,23 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="portfolioPage">
 
 <head>
     <meta charset="UTF-8">
 
-    <title>Portfolio Page</title>
+    <title>Angular.js Portfolio Page</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js">
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css">
 
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css">
     <link rel="stylesheet" href="styles/app.css">
 </head>
 
-<body ng-app="portfolioPage" ng-cloak>
+<body ng-cloak>
 
     <md-content>
         <md-tabs md-dynamic-height="" md-border-bottom="">
@@ -98,9 +99,9 @@
 
                         <h1 class="md-display-1">Frameworks, Libraries, and Technologies...</h1>
                         <form class="form-search" ng-controller="listCtrl">
-                            <div class="input-append">
-                                <input id="skill-search" type="text" ng-model="search" placeholder="Search user" class="form-control">
-                            </div>
+                            <md-input-container>
+                                <input id="skill-search" type="text" ng-model="search" placeholder="Search skills">
+                            </md-input-container>
 
                             <ul class="example-animate-container">
                                 <li class="animate-repeat" ng-repeat="skill in skills | filter:search">
@@ -113,22 +114,31 @@
 
             <md-tab label="Wiki Search">
                 <md-content class="md-padding" ng-controller="wikiCtrl">
-                    <div id="content">
-                        <div id="control">
-                            <div class="ui right action left icon input">
-                                <input id="search" type="text" placeholder="Search Wikipedia" ng-model="query">
-                                <i class="big icon search"></i>
-                                <button onclick="location.href='https://en.wikipedia.org/wiki/Special:Random';" class="ui teal right labeled icon button">
-                                <i class="random icon"></i>
-                                Surprise Me!
-                            </button>
+                    <form layout layout-align="center" layout-padding>
+                        <div layout="row" flex>
+                            <md-input-container flex class="md-icon-float md-block md-title">
+                                <label>Wikipedia Search:</label>
+                                <md-icon class="material-icons">search</md-icon>
+                                <input id="search" placeholder="Enter search term..." ng-model="query">
+                            </md-input-container>
+                            <div>
+                                <md-button class="md-raised" onclick="location.href='https://en.wikipedia.org/wiki/Special:Random';">
+                                    Surprise Me!
+                                    <md-icon class="material-icons">shuffle</md-icon>
+                                </md-button>
                             </div>
                         </div>
-                        <div class="ui raised segment" ng-repeat='data in wikiData'>
-                            <h4 class="ui header">{{data.name}}</h4>
-                            <p>{{data.snip}}</p><a href="{{data.link}}">Read More <i class="small external icon"></i></a>
-                        </div>
-                    </div>
+                    </form>
+
+                    <md-card ng-repeat='data in wikiData'>
+                        <md-card-header>
+                            <md-card-header-text>
+                                <h4 class=".md-title">{{data.name}}</h4>
+                                <p>{{data.snip}}</p>
+                                <a href="{{data.link}}" target="blank">Read More...<md-icon class="material-icons">open_in_new</md-icon></a>
+                            </md-card-header-text>
+                        </md-card-header>
+                    </md-card>
                 </md-content>
             </md-tab>
 
@@ -165,45 +175,45 @@
                         <md-card-header>
                             <md-card-header-text>
                                 <span class="md-title">Get Stuff Done!</span>
-                                <md-button class="fa fa-plus material-icons" ng-click="toggleForm()"> Add</md-button>
-                                <md-button class="fa fa-trash material-icons" ng-click="clearDoneItems()"> Delete</md-button>
+                            </md-card-header-text>
+                            <md-button class="fa fa-plus" ng-click="toggleForm()"> Add</md-button>
+                            <md-button class="fa fa-trash" ng-click="clearDoneItems()"> Delete</md-button>
+                        </md-card-header>
 
-                                <md-card-content>
-                                    <div id="list-view" ng-hide="addMode">
-                                        <md-list>
-                                            <md-list-item class="md-2-line td-li item-done-{{item.done}}" ng-model="toDoList" ng-repeat="item in toDoList track by $index">
-                                                <label class="checkbox js-checkbox js-ripple-effect" for="checkbox-{{$index}}">
+                        <md-card-content>
+                            <div id="list-view" ng-hide="addMode">
+                                <md-list>
+                                    <md-list-item class="md-2-line td-li item-done-{{item.done}}" ng-model="toDoList" ng-repeat="item in toDoList track by $index">
+                                        <label class="checkbox js-checkbox js-ripple-effect" for="checkbox-{{$index}}">
                                                    <md-checkbox class="checkbox__input" id="checkbox-{{$index}}" aria-label="checkbox" ng-model="item.done"></md-checkbox>
                                                    <span class="checkbox__label">{{item.desc}}</span>
                                                 </label>
-                                                <div class="item-due-date" ng-show="item.due">Due: {{item.due | date}} </div>
-                                                <div class="item-due-date" ng-show="item.dt">Added: {{item.dt | date:'MMM dd, yyyy' }} </div>
-                                            </md-list-item>
-                                        </md-list>
-                                    </div>
+                                        <div class="item-due-date" ng-show="item.due">Due: {{item.due | date}} </div>
+                                        <div class="item-due-date" ng-show="item.dt">Added: {{item.dt | date:'MMM dd, yyyy' }} </div>
+                                    </md-list-item>
+                                </md-list>
+                            </div>
 
-                                    <div id="add-view" ng-show="addMode">
-                                        <form name="addNewForm">
-                                            <md-input-container>
-                                                <input class="textfield__input" name="itemDesc" type="text" id="td-desc" ng-model="newItem.desc" required>
-                                                <label class="textfield__label" style="color:rgb(55, 33, 10);" for="td-desc">Description...</label>
-                                            </md-input-container>
+                            <div id="add-view" ng-show="addMode">
+                                <form name="addNewForm">
+                                    <md-input-container>
+                                        <input class="textfield__input" name="itemDesc" type="text" id="td-desc" ng-model="newItem.desc" required>
+                                        <label class="textfield__label" style="color:rgb(55, 33, 10);" for="td-desc">Description...</label>
+                                    </md-input-container>
 
-                                            <div class="textfield js-textfield textfield--floating-label">
-                                                <md-datepicker id="td-due" ng-model="newItem.due"></md-datepicker>
-                                                <label class="textfield__label" style="color: rgba(0,0,0,0.0);" for="td-due">Due Date...</label>
-                                            </div>
-                                            <br/>
-                                            <button class="button js-button button--raised button--colored js-ripple-effect" ng-click="addItem()" ng-disabled='!addNewForm.itemDesc.$valid'>ADD</button>
-                                        </form>
+                                    <div class="textfield js-textfield textfield--floating-label">
+                                        <md-datepicker id="td-due" ng-model="newItem.due"></md-datepicker>
+                                        <label class="textfield__label" style="color: rgba(0,0,0,0.0);" for="td-due">Due Date...</label>
                                     </div>
-                                    <div class="card-supporting-text">
-                                    </div>
-                                    <div class="card-actions">
-                                    </div>
-                                </md-card-content>
-                            </md-card-header-text>
-                        </md-card-header>
+                                    <br/>
+                                    <button class="button js-button button--raised button--colored js-ripple-effect" ng-click="addItem()" ng-disabled='!addNewForm.itemDesc.$valid'>ADD</button>
+                                </form>
+                            </div>
+                            <div class="card-supporting-text">
+                            </div>
+                            <div class="card-actions">
+                            </div>
+                        </md-card-content>
                     </md-card>
                 </md-content>
             </md-tab>

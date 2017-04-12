@@ -1,4 +1,4 @@
-angular.module("portfolioPage", ["ngMaterial", "ngResource"])
+angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
     .controller("chanceCtrl", function($scope) {
         $scope.title = "My chances of getting hired?";
     })
