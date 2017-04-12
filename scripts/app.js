@@ -1,6 +1,6 @@
 angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
     .controller("chanceCtrl", function($scope) {
-        $scope.title = "My chances of getting hired?";
+        $scope.title = "Chance to hire is";
     })
 
     .controller('workCtrl', function($scope) {
