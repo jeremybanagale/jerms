@@ -193,18 +193,6 @@ li {
 
 
 /* ----- CARDS -------- */
-.card-loc .card-media, .card-dt .card-media, .card-weather .card-media, .card-color .card-media {
-    text-align: center;
-    font-family: monospace;
-    font-size: 22px;
-    line-height: 1.5;
-}
-
-.td-li {
-    list-style: none;
-    margin-bottom: 10px;
-}
-
 #add-view {
     text-align: center;
     padding: 0px 8px;
@@ -230,14 +218,6 @@ li {
     text-decoration: inherit;
 }
 
-.is-focused .textfield__label, .is-dirty .textfield__label {
-    color: rgb(255, 87, 34) !important;
-}
-
-.card {
-    width: auto;
-}
-
 /* ----- CARD COLORS -------- */
 
 .card-dt, .card-dt .card-media {
@@ -258,34 +238,4 @@ li {
 
 .card-loc, .card-loc .card-media {
     background-color: #4DD0E1;
-}
-
-
-/* ----- CARD CLASS CODES ----- */
-.card .card-media {
-    background-color: inherit;
-}
-
-.bg-color-x0 {
-    background-color: #CDDC39;
-}
-
-.bg-color-x1 {
-    background-color: #FFD740;
-}
-
-.bg-color-x2 {
-    background-color: #eee;
-}
-
-.bg-color-x3 {
-    background-color: #FFF176;
-}
-
-.bg-color-x4 {
-    background-color: #4DD0E1;
-}
-
-.bg-color-x5 {
-    background-color: #D2B48C;
 }
