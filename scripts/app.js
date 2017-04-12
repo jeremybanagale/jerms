@@ -42,7 +42,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
             company: "Teleperformance",
             location: "Makati City",
             title: 'Technical Support Representative ',
-            period: 'NOVEMBER 2011 - NOVEMBER 2012',
+            period: 'JANUARY 2012 - NOVEMBER 2012',
             tasks: [{
                 task: 'Deliver service and support to end-users regarding issues with Star Wars: The Old Republic via phone or remote-access.'
             }, {
