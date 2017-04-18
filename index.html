@@ -103,7 +103,7 @@
         <md-content class="md-padding" layout-xs="column" layout="row">
           <div flex-xs="" layout="column">
             <md-card>
-              <md-card-header md-colors="::{backgroundColor: 'default-primary-500'}">
+              <md-card-header md-colors="::{backgroundColor: 'default-primary-700'}">
                 <md-card-header-text>
                   <h1 class=".md-display-1">Skills Overview</h1>
                 </md-card-header-text>
@@ -130,90 +130,98 @@
                 </ul>
 
                 <svg width="0" height="0">
-                      <defs>
-                        <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-                            <stop stop-color="#618099"/>
-                            <stop offset="100%" stop-color="#8e6677"/>
-                        </linearGradient>
-                        <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
-                            <stop stop-color="#8e6677"/>
-                            <stop offset="100%" stop-color="#9b5e67"/>
-                        </linearGradient>
-                        <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1">
-                            <stop stop-color="#9b5e67"/>
-                            <stop offset="100%" stop-color="#9c787a"/>
-                        </linearGradient>
-                        <linearGradient id="cl4" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0">
-                            <stop stop-color="#9c787a"/>
-                            <stop offset="100%" stop-color="#817a94"/>
-                        </linearGradient>
-                        <linearGradient id="cl5" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
-                            <stop stop-color="#817a94"/>
-                            <stop offset="100%" stop-color="#498a98"/>
-                        </linearGradient>
-                        <linearGradient id="cl6" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="0">
-                            <stop stop-color="#498a98"/>
-                            <stop offset="100%" stop-color="#618099"/>
-                        </linearGradient>
-                      </defs>
-                    </svg>
+                  <defs>
+                    <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                        <stop stop-color="#618099"/>
+                        <stop offset="100%" stop-color="#8e6677"/>
+                    </linearGradient>
+                    <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+                        <stop stop-color="#8e6677"/>
+                        <stop offset="100%" stop-color="#9b5e67"/>
+                    </linearGradient>
+                    <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1">
+                        <stop stop-color="#9b5e67"/>
+                        <stop offset="100%" stop-color="#9c787a"/>
+                    </linearGradient>
+                    <linearGradient id="cl4" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0">
+                        <stop stop-color="#9c787a"/>
+                        <stop offset="100%" stop-color="#817a94"/>
+                    </linearGradient>
+                    <linearGradient id="cl5" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
+                        <stop stop-color="#817a94"/>
+                        <stop offset="100%" stop-color="#498a98"/>
+                    </linearGradient>
+                    <linearGradient id="cl6" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="0">
+                        <stop stop-color="#498a98"/>
+                        <stop offset="100%" stop-color="#618099"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
               </md-card-content>
             </md-card>
 
             <md-card>
               <md-card-header md-colors="::{backgroundColor: 'default-primary-500'}">
                 <md-card-header-text>
-                  <h1 class=".md-display-1">Additional frameworks, libraries, and technologies...</h1>
+                  <h1 class=".md-title">Additional frameworks, libraries, and technologies...</h1>
                 </md-card-header-text>
               </md-card-header>
 
-              <md-card-content>
-                <form class="form-search" ng-controller="listCtrl">
-                  <md-input-container>
-                    <input id="skill-search" type="text" ng-model="search" placeholder="Search skills">
-                  </md-input-container>
+              <md-card-content class="form-search" ng-controller="listCtrl">
+                <md-input-container>
+                  <input id="skill-search" type="text" ng-model="search" placeholder="Search skills">
+                </md-input-container>
 
-                  <ul class="example-animate-container">
-                    <li class="animate-repeat" ng-repeat="skill in skills | filter:search">
-                      <a href={{skill.url}} target="blank">{{skill.name}}</a>
-                    </li>
-                  </ul>
-                </form>
+                <md-list class="example-animate-container">
+                  <md-list-item class="animate-repeat" ng-repeat="skill in skills | filter:search">
+                    <a href={{skill.url}} target="blank">{{skill.name}}</a>
+                  </md-list-item>
+                </md-list>
               </md-card-content>
-              
-          </md-card>
+
+            </md-card>
           </div>
         </md-content>
       </md-tab>
 
       <md-tab label="Wiki Search">
-        <md-content class="md-padding" ng-controller="wikiCtrl">
-          <form layout layout-align="center" layout-padding>
-            <div layout="row" flex>
-              <md-input-container flex class="md-icon-float md-block md-title">
-                <label>Wikipedia Search:</label>
-                <md-icon class="material-icons">search</md-icon>
-                <input id="search" placeholder="Enter search term..." ng-model="query">
-              </md-input-container>
-              <div>
-                <md-button class="md-raised md-primary" onclick="location.href='https://en.wikipedia.org/wiki/Special:Random';">
-                  Surprise Me!
-                  <md-icon class="material-icons">shuffle</md-icon>
-                </md-button>
-              </div>
-            </div>
-          </form>
+        <md-content class="md-padding" layout-xs="column" layout="row">
+          <div flex-xs="" layout="column">
+            <md-card>
+              <md-card-header md-colors="::{backgroundColor: 'default-primary-700'}">
+                <md-card-header-text>
+                  <h1 class=".md-display-1">Wikipedia Search</h1>
+                </md-card-header-text>
+              </md-card-header>
 
-          <md-card ng-repeat='data in wikiData'>
-            <md-card-header>
-              <md-card-header-text>
-                <h4 class=".md-title">{{data.name}}</h4>
-                <p>{{data.snip}}</p>
-                <a href="{{data.link}}" target="blank">Read More...<md-icon class="material-icons">open_in_new</md-icon></a>
-              </md-card-header-text>
-            </md-card-header>
-          </md-card>
-        </md-content>
+              <md-card-content class="md-padding" ng-controller="wikiCtrl">
+                  <div layout="row" flex>
+                    <md-input-container flex class="md-icon-float md-block md-title">
+                      <md-icon class="material-icons">search</md-icon>
+                      <input id="search" placeholder="Enter search term..." ng-model="query">
+                    </md-input-container>
+                    <div>
+                      <md-button class="md-raised md-primary" onclick="location.href='https://en.wikipedia.org/wiki/Special:Random';">
+                        Surprise Me!
+                        <md-icon class="material-icons">shuffle</md-icon>
+                      </md-button>
+                    </div>
+                  </div>
+
+                <md-card ng-repeat='data in wikiData'>
+                  <md-card-header>
+                    <md-card-header-text>
+                      <h4 class=".md-title">{{data.name}}</h4>
+                    </md-card-header-text>
+                  </md-card-header>
+
+                  <md-card-content>
+                    <p>{{data.snip}}</p>
+                    <a href="{{data.link}}" target="blank">Read More...<md-icon class="material-icons">open_in_new</md-icon></a>
+                  </md-card-content>
+                </md-card>
+          </div>
+          </md-card-content>
       </md-tab>
 
       <md-tab label="cards">
