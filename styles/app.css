@@ -217,25 +217,3 @@ li {
     display: inline-block;
     text-decoration: inherit;
 }
-
-/* ----- CARD COLORS -------- */
-
-/*.card-dt, .card-dt .card-media {
-    background-color: #CDDC39;
-}
-
-.card-todo, .card-todo .card-media {
-    background-color: #FFD740;
-}
-
-.card-weather, .card-weather .card-media {
-    background-color: #eee;
-}
-
-.card-profile, .card-profile .card-media {
-    background-color: #FFF176;
-}
-
-.card-loc, .card-loc .card-media {
-    background-color: #4DD0E1;
-}*/

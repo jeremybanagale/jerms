@@ -2,298 +2,324 @@
 <html lang="en" ng-app="portfolioPage">
 
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-    <title>Angular.js Portfolio Page</title>
+  <title>Angular.js Portfolio Page</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css">
-    <link rel="stylesheet" href="styles/app.css">
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css">
+  <link rel="stylesheet" href="styles/app.css">
 </head>
 
 <body ng-cloak>
-    <md-content>
-        <md-tabs md-dynamic-height="" md-border-bottom="">
-            <md-tab label="details">
-                <md-content class="md-padding" layout-xs="column" layout="row">
-                    <div flex-xs="" layout="column">
-                        <md-card ng-controller="chanceCtrl">
-                            <md-card-header md-colors="::{backgroundColor: 'default-primary-700'}">
-                                <md-card-avatar>
-                                    <img class="md-user-avatar" src="pic.jpg">
-                                </md-card-avatar>
+  <md-content>
 
-                                <md-card-header-text>
-                                    <span class="md-title">Jigno Alfred V. Venezuela</span>
-                                    <span class="md-subhead">Web Developer</span>
-                                </md-card-header-text>
-                            </md-card-header>
+    <md-tabs md-dynamic-height="" md-border-bottom="">
 
-                            <img ng-src="http://www.wallpaperskid.com/wallpaper-images/146/justin-maller-ghosts-4k-LeuC2S.jpg" class="md-card-image">
+      <md-tab label="details">
+        <md-content class="md-padding" layout-xs="column" layout="row">
+          <div flex-xs="" layout="column">
+            <md-card ng-controller="chanceCtrl">
+              <md-card-header md-colors="::{backgroundColor: 'default-primary-700'}">
+                <md-card-avatar>
+                  <img class="md-user-avatar" src="pic.jpg">
+                </md-card-avatar>
 
-                            <md-card-title>
-                                <md-card-title-text>
-                                    <md-button ng-click="chance = chance + 1" class="md-raised md-primary">{{title}} {{chance}}0%</md-button>
-                                </md-card-title-text>
-                            </md-card-title>
+                <md-card-header-text>
+                  <span class="md-title">Jigno Alfred V. Venezuela</span>
+                  <span class="md-subhead">Web Developer</span>
+                </md-card-header-text>
+              </md-card-header>
 
-                            <md-card-content>
-                                <md-grid-list md-cols="5" md-gutter="1em" md-row-height="4:3">
-                                    <md-grid-tile>
-                                        <a href="https://www.facebook.com/jigzimon" target="_blank"><i class="fa fa-4x fa-facebook-square"></i></a>
-                                    </md-grid-tile>
-                                    <md-grid-tile>
-                                        <a href="https://www.linkedin.com/in/jigno-alfred-venezuela-757600b3/" target="_blank"><i class="fa fa-4x fa-linkedin-square"></i></a>
-                                    </md-grid-tile>
-                                    <md-grid-tile>
-                                        <a href="https://github.com/iamjigz" target="_blank"> <i class="fa fa-4x fa-github-alt"></i></a>
-                                    </md-grid-tile>
-                                    <md-grid-tile>
-                                        <a href="http://codepen.io/iamjigz/" target="_blank"> <i class="fa fa-4x fa-codepen"></i></a>
-                                    </md-grid-tile>
-                                    <md-grid-tile>
-                                        <a href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela" target="_blank"><i class="fa fa-4x fa-stack-overflow"></i></a>
-                                    </md-grid-tile>
-                                </md-grid-list>
+              <img ng-src="http://www.wallpaperskid.com/wallpaper-images/146/justin-maller-ghosts-4k-LeuC2S.jpg" class="md-card-image">
 
-                                <p class="md-subhead">Age: 30
-                                    <br>Location: Santo Tomas, Batangas
-                                    <br>Mobile: +639260118502
-                                    <br>Email: jigzimon@gmail.com</p>
-                            </md-card-content>
-                        </md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <md-button ng-click="chance = chance + 1" class="md-raised md-primary">{{title}} {{chance}}0%</md-button>
+                </md-card-title-text>
+              </md-card-title>
 
-                        <md-card ng-controller="chanceCtrl">
-                            <md-card-header md-colors="::{backgroundColor: 'default-primary-500'}">
-                                <md-card-header-text>
-                                    <h1 class=".md-display-1">Work Experience</h1>
-                                </md-card-header-text>
-                            </md-card-header>
+              <md-card-content>
+                <md-grid-list md-cols="5" md-gutter="1em" md-row-height="4:3">
+                  <md-grid-tile>
+                    <a href="https://www.facebook.com/jigzimon" target="_blank"><i class="fa fa-4x fa-facebook-square"></i></a>
+                  </md-grid-tile>
+                  <md-grid-tile>
+                    <a href="https://www.linkedin.com/in/jigno-alfred-venezuela-757600b3/" target="_blank"><i class="fa fa-4x fa-linkedin-square"></i></a>
+                  </md-grid-tile>
+                  <md-grid-tile>
+                    <a href="https://github.com/iamjigz" target="_blank"> <i class="fa fa-4x fa-github-alt"></i></a>
+                  </md-grid-tile>
+                  <md-grid-tile>
+                    <a href="http://codepen.io/iamjigz/" target="_blank"> <i class="fa fa-4x fa-codepen"></i></a>
+                  </md-grid-tile>
+                  <md-grid-tile>
+                    <a href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela" target="_blank"><i class="fa fa-4x fa-stack-overflow"></i></a>
+                  </md-grid-tile>
+                </md-grid-list>
 
-                            <md-card-content ng-controller="workCtrl">
-                                <md-list>
-                                    <md-list-item class="md-2-line" ng-repeat-start="exp in exps">
-                                        <div class="md-list-item-text">
-                                            <h3>{{exp.company}}</h3>
-                                            <p>{{exp.location}}</p>
-                                            <p>{{exp.title}}</p>
-                                            <p>{{exp.period}}</p>
-                                            <ul>
-                                                <li ng-repeat="task in exp.tasks">{{task.task}}</li>
-                                            </ul>
-                                        </div>
-                                        <md-divider></md-divider>
-                                    </md-list-item>
-                                    <div ng-repeat-end></div>
-                                </md-list>
-                            </md-card-content>
-                        </md-card>
-                </md-content>
-            </md-tab>
+                <p class="md-subhead">Age: 30
+                  <br>Location: Santo Tomas, Batangas
+                  <br>Mobile: +639260118502
+                  <br>Email: jigzimon@gmail.com</p>
+              </md-card-content>
+            </md-card>
 
-            <md-tab label="skills">
-                <md-content class="md-padding" ng-controller="chartCtrl">
-                    <ul class="progress">
-                        <li ng-repeat="language in languages" data-name={{language.name}} data-percent={{language.percent}}>
-                            <svg viewBox="-10 -10 220 220">
-                            <g fill="none" stroke-width="12" transform="translate(100,100)">
-                              <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
-                              <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
-                              <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
-                              <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
-                              <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
-                              <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
-                            </g>
-                          </svg>
-                            <svg viewBox="-10 -10 220 220">
-                            <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset={{language.offset}}></path>
-                          </svg>
-                        </li>
+            <md-card>
+              <md-card-header md-colors="::{backgroundColor: 'default-primary-500'}">
+                <md-card-header-text>
+                  <h1 class=".md-display-1">Work Experience</h1>
+                </md-card-header-text>
+              </md-card-header>
 
-                        <svg width="0" height="0">
-                          <defs>
-                            <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
-                                <stop stop-color="#618099"/>
-                                <stop offset="100%" stop-color="#8e6677"/>
-                            </linearGradient>
-                            <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
-                                <stop stop-color="#8e6677"/>
-                                <stop offset="100%" stop-color="#9b5e67"/>
-                            </linearGradient>
-                            <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1">
-                                <stop stop-color="#9b5e67"/>
-                                <stop offset="100%" stop-color="#9c787a"/>
-                            </linearGradient>
-                            <linearGradient id="cl4" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0">
-                                <stop stop-color="#9c787a"/>
-                                <stop offset="100%" stop-color="#817a94"/>
-                            </linearGradient>
-                            <linearGradient id="cl5" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
-                                <stop stop-color="#817a94"/>
-                                <stop offset="100%" stop-color="#498a98"/>
-                            </linearGradient>
-                            <linearGradient id="cl6" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="0">
-                                <stop stop-color="#498a98"/>
-                                <stop offset="100%" stop-color="#618099"/>
-                            </linearGradient>
-                          </defs>
-                        </svg>
+              <md-card-content ng-controller="workCtrl">
+                <md-list>
+                  <md-list-item class="md-2-line" ng-repeat-start="exp in exps">
+                    <div class="md-list-item-text">
+                      <h3>{{exp.company}}</h3>
+                      <p>{{exp.location}}</p>
+                      <p>{{exp.title}}</p>
+                      <p>{{exp.period}}</p>
+                      <ul>
+                        <li ng-repeat="task in exp.tasks">{{task.task}}</li>
+                      </ul>
+                    </div>
+                    <md-divider></md-divider>
+                  </md-list-item>
+                  <div ng-repeat-end></div>
+                </md-list>
+              </md-card-content>
+            </md-card>
+        </md-content>
+      </md-tab>
 
-                        <h1 class="md-display-1">Frameworks, Libraries, and Technologies...</h1>
-                        <form class="form-search" ng-controller="listCtrl">
-                            <md-input-container>
-                                <input id="skill-search" type="text" ng-model="search" placeholder="Search skills">
-                            </md-input-container>
+      <md-tab label="skills">
+        <md-content class="md-padding" layout-xs="column" layout="row">
+          <div flex-xs="" layout="column">
+            <md-card>
+              <md-card-header md-colors="::{backgroundColor: 'default-primary-500'}">
+                <md-card-header-text>
+                  <h1 class=".md-display-1">Skills Overview</h1>
+                </md-card-header-text>
+              </md-card-header>
 
-                            <ul class="example-animate-container">
-                                <li class="animate-repeat" ng-repeat="skill in skills | filter:search">
-                                    <a href={{skill.url}} target="blank">{{skill.name}}</a>
-                                </li>
-                            </ul>
-                        </form>
-            </md-tab>
+              <md-card-content ng-controller="chartCtrl">
+                <ul class="progress">
+                  <li ng-repeat="language in languages" data-name={{language.name}} data-percent={{language.percent}}>
+                    <svg viewBox="-10 -10 220 220">
+                      <g fill="none" stroke-width="12" transform="translate(100,100)">
+                        <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                        <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                        <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                        <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                        <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                        <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                      </g>
+                    </svg>
 
-            <md-tab label="Wiki Search">
-                <md-content class="md-padding" ng-controller="wikiCtrl">
-                    <form layout layout-align="center" layout-padding>
-                        <div layout="row" flex>
-                            <md-input-container flex class="md-icon-float md-block md-title">
-                                <label>Wikipedia Search:</label>
-                                <md-icon class="material-icons">search</md-icon>
-                                <input id="search" placeholder="Enter search term..." ng-model="query">
-                            </md-input-container>
-                            <div>
-                                <md-button class="md-raised md-primary" onclick="location.href='https://en.wikipedia.org/wiki/Special:Random';">
-                                    Surprise Me!
-                                    <md-icon class="material-icons">shuffle</md-icon>
-                                </md-button>
-                            </div>
-                        </div>
-                    </form>
+                    <svg viewBox="-10 -10 220 220">
+                      <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset={{language.offset}}></path>
+                    </svg>
+                  </li>
+                </ul>
 
-                    <md-card ng-repeat='data in wikiData'>
-                        <md-card-header>
-                            <md-card-header-text>
-                                <h4 class=".md-title">{{data.name}}</h4>
-                                <p>{{data.snip}}</p>
-                                <a href="{{data.link}}" target="blank">Read More...<md-icon class="material-icons">open_in_new</md-icon></a>
-                            </md-card-header-text>
-                        </md-card-header>
-                    </md-card>
-                </md-content>
-            </md-tab>
+                <svg width="0" height="0">
+                      <defs>
+                        <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                            <stop stop-color="#618099"/>
+                            <stop offset="100%" stop-color="#8e6677"/>
+                        </linearGradient>
+                        <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+                            <stop stop-color="#8e6677"/>
+                            <stop offset="100%" stop-color="#9b5e67"/>
+                        </linearGradient>
+                        <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1">
+                            <stop stop-color="#9b5e67"/>
+                            <stop offset="100%" stop-color="#9c787a"/>
+                        </linearGradient>
+                        <linearGradient id="cl4" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0">
+                            <stop stop-color="#9c787a"/>
+                            <stop offset="100%" stop-color="#817a94"/>
+                        </linearGradient>
+                        <linearGradient id="cl5" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
+                            <stop stop-color="#817a94"/>
+                            <stop offset="100%" stop-color="#498a98"/>
+                        </linearGradient>
+                        <linearGradient id="cl6" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="0">
+                            <stop stop-color="#498a98"/>
+                            <stop offset="100%" stop-color="#618099"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+              </md-card-content>
+            </md-card>
 
-            <md-tab label="cards">
-              <md-content class="md-padding" layout-xs="column" layout="row">
-                  <div flex-xs="" layout="column">
-                    <md-grid-list md-cols="2" md-gutter="1em" md-row-height="4:3">
-                        <md-grid-tile>
-                            <md-card class="card-loc" ng-controller="locationCtrl" md-colors="::{backgroundColor: 'default-primary-500'}">
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <span class="md-headline">You are in:</span>
-                                    </md-card-title-text>
-                                    <md-button>
-                                        <md-icon ng-click="getLoc()">room</md-icon>
-                                    </md-button>
-                                </md-card-title>
+            <md-card>
+              <md-card-header md-colors="::{backgroundColor: 'default-primary-500'}">
+                <md-card-header-text>
+                  <h1 class=".md-display-1">Additional frameworks, libraries, and technologies...</h1>
+                </md-card-header-text>
+              </md-card-header>
 
-                                <md-divider></md-divider>
+              <md-card-content>
+                <form class="form-search" ng-controller="listCtrl">
+                  <md-input-container>
+                    <input id="skill-search" type="text" ng-model="search" placeholder="Search skills">
+                  </md-input-container>
 
-                                <md-card-content>
-                                    <div ng-show="myLoc">
-                                        <p>IP: {{myLoc.query}}
-                                            <br>Address: {{myLoc.city}}, {{myLoc.regionName}}</p>
-                                    </div>
-                                </md-card-content>
-                            </md-card>
-                        </md-grid-tile>
+                  <ul class="example-animate-container">
+                    <li class="animate-repeat" ng-repeat="skill in skills | filter:search">
+                      <a href={{skill.url}} target="blank">{{skill.name}}</a>
+                    </li>
+                  </ul>
+                </form>
+              </md-card-content>
+              
+          </md-card>
+          </div>
+        </md-content>
+      </md-tab>
 
-                        <md-grid-tile>
-                            <md-card class="card-weather" ng-controller="weatherCtrl" md-colors="::{backgroundColor: 'default-primary-300'}">
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <span class="md-headline">Going out?</span>
-                                    </md-card-title-text>
-                                    <md-button>
-                                        <md-icon ng-click="getWeather()">location_searching</md-icon>
-                                    </md-button>
-                                </md-card-title>
+      <md-tab label="Wiki Search">
+        <md-content class="md-padding" ng-controller="wikiCtrl">
+          <form layout layout-align="center" layout-padding>
+            <div layout="row" flex>
+              <md-input-container flex class="md-icon-float md-block md-title">
+                <label>Wikipedia Search:</label>
+                <md-icon class="material-icons">search</md-icon>
+                <input id="search" placeholder="Enter search term..." ng-model="query">
+              </md-input-container>
+              <div>
+                <md-button class="md-raised md-primary" onclick="location.href='https://en.wikipedia.org/wiki/Special:Random';">
+                  Surprise Me!
+                  <md-icon class="material-icons">shuffle</md-icon>
+                </md-button>
+              </div>
+            </div>
+          </form>
 
-                                <md-divider></md-divider>
+          <md-card ng-repeat='data in wikiData'>
+            <md-card-header>
+              <md-card-header-text>
+                <h4 class=".md-title">{{data.name}}</h4>
+                <p>{{data.snip}}</p>
+                <a href="{{data.link}}" target="blank">Read More...<md-icon class="material-icons">open_in_new</md-icon></a>
+              </md-card-header-text>
+            </md-card-header>
+          </md-card>
+        </md-content>
+      </md-tab>
 
-                                <md-card-content>
-                                    <div ng-show="wForecast">
-                                        <span>Forecast: {{wForecast.abs.description}}</span>
-                                        <br>Humidity: {{wForecast.humidity}}
-                                        <br>Temp: {{wForecast.temp + 'C'}}
-                                    </div>
-                                </md-card-content>
-                            </md-card>
-                        </md-grid-tile>
-                    </md-grid-list>
+      <md-tab label="cards">
+        <md-content class="md-padding" layout-xs="column" layout="row">
+          <div flex-xs="" layout="column">
+            <md-grid-list md-cols="2" md-gutter="1em" md-row-height="4:3">
+              <md-grid-tile>
+                <md-card class="card-loc" ng-controller="locationCtrl" md-colors="::{backgroundColor: 'default-primary-500'}">
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="md-headline">You are in:</span>
+                    </md-card-title-text>
+                    <md-button>
+                      <md-icon ng-click="getLoc()">room</md-icon>
+                    </md-button>
+                  </md-card-title>
 
-                    <md-card class="card-todo" ng-controller="todoCtrl" md-colors="::{backgroundColor: 'default-primary-100'}">
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline">Get Stuff Done!</span>
-                            </md-card-title-text>
-                            <md-button ng-click="toggleForm()">
-                                <label>Add Note</label>
-                                <md-icon>note_add</md-icon>
-                            </md-button>
-                            <md-button ng-click="clearDoneItems()">
-                                <label>Delete Note</label>
-                                <md-icon>delete_forever</md-icon>
-                            </md-button>
-                        </md-card-title>
+                  <md-divider></md-divider>
 
-                        <md-divider></md-divider>
+                  <md-card-content>
+                    <div ng-show="myLoc">
+                      <p>IP: {{myLoc.query}}
+                        <br>Address: {{myLoc.city}}, {{myLoc.regionName}}</p>
+                    </div>
+                  </md-card-content>
+                </md-card>
+              </md-grid-tile>
 
-                        <md-card-content>
-                            <md-list id="list-view" ng-hide="addMode">
-                                <md-list-item class="md-2-line td-li item-done-{{item.done}}" ng-model="toDoList" ng-repeat="item in toDoList track by $index">
-                                    <label for="checkbox-{{$index}}">
+              <md-grid-tile>
+                <md-card class="card-weather" ng-controller="weatherCtrl" md-colors="::{backgroundColor: 'default-primary-300'}">
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="md-headline">Going out?</span>
+                    </md-card-title-text>
+                    <md-button>
+                      <md-icon ng-click="getWeather()">location_searching</md-icon>
+                    </md-button>
+                  </md-card-title>
+
+                  <md-divider></md-divider>
+
+                  <md-card-content>
+                    <div ng-show="wForecast">
+                      <span>Forecast: {{wForecast.abs.description}}</span>
+                      <br>Humidity: {{wForecast.humidity}}
+                      <br>Temp: {{wForecast.temp + 'C'}}
+                    </div>
+                  </md-card-content>
+                </md-card>
+              </md-grid-tile>
+            </md-grid-list>
+
+            <md-card class="card-todo" ng-controller="todoCtrl" md-colors="::{backgroundColor: 'default-primary-100'}">
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Get Stuff Done!</span>
+                </md-card-title-text>
+                <md-button ng-click="toggleForm()">
+                  <label>Add Note</label>
+                  <md-icon>note_add</md-icon>
+                </md-button>
+                <md-button ng-click="clearDoneItems()">
+                  <label>Delete Note</label>
+                  <md-icon>delete_forever</md-icon>
+                </md-button>
+              </md-card-title>
+
+              <md-divider></md-divider>
+
+              <md-card-content>
+                <md-list id="list-view" ng-hide="addMode">
+                  <md-list-item class="md-2-line td-li item-done-{{item.done}}" ng-model="toDoList" ng-repeat="item in toDoList track by $index">
+                    <label for="checkbox-{{$index}}">
                                                  <md-checkbox id="checkbox-{{$index}}" aria-label="checkbox" ng-model="item.done"></md-checkbox>
                                                  <span class="checkbox__label">{{item.desc}}</span>
                                               </label>
-                                    <div class="item-due-date" ng-show="item.due">Due: {{item.due | date}} </div>
-                                    <div class="item-due-date" ng-show="item.dt">Added: {{item.dt | date:'MMM dd, yyyy' }} </div>
-                                    <md-divider md-inset></md-divider>
-                                </md-list-item>
-                            </md-list>
+                    <div class="item-due-date" ng-show="item.due">Due: {{item.due | date}} </div>
+                    <div class="item-due-date" ng-show="item.dt">Added: {{item.dt | date:'MMM dd, yyyy' }} </div>
+                    <md-divider md-inset></md-divider>
+                  </md-list-item>
+                </md-list>
 
-                            <form id="add-view" ng-show="addMode" name="addNewForm" layout layout-align="center" layout-padding>
-                                <div layout="row" flex>
-                                    <md-input-container flex class="md-icon-float md-block">
-                                        <label>Description:</label>
-                                        <input name="itemDesc" id="td-desc" aria-label="input" ng-model="newItem.desc" required>
-                                    </md-input-container>
-                                    <md-input-container>
-                                        <label>Due Date:</label>
-                                        <md-datepicker id="td-due" aria-label="date" ng-model="newItem.due"></md-datepicker>
-                                    </md-input-container>
-                                    <div>
-                                        <md-button class="md-primary md-raised">
-                                            <label>Save</label>
-                                            <md-icon ng-click="addItem()" ng-disabled='!addNewForm.itemDesc.$valid'>save</md-icon>
-                                        </md-button>
-                                    </div>
-                                </div>
-                            </form>
-                        </md-card-content>
-                    </md-card>
+                <form id="add-view" ng-show="addMode" name="addNewForm" layout layout-align="center" layout-padding>
+                  <div layout="row" flex>
+                    <md-input-container flex class="md-icon-float md-block">
+                      <label>Description:</label>
+                      <input name="itemDesc" id="td-desc" aria-label="input" ng-model="newItem.desc" required>
+                    </md-input-container>
+                    <md-input-container>
+                      <label>Due Date:</label>
+                      <md-datepicker id="td-due" aria-label="date" ng-model="newItem.due"></md-datepicker>
+                    </md-input-container>
+                    <div>
+                      <md-button class="md-primary md-raised">
+                        <label>Save</label>
+                        <md-icon ng-click="addItem()" ng-disabled='!addNewForm.itemDesc.$valid'>save</md-icon>
+                      </md-button>
+                    </div>
                   </div>
-                </md-content>
-            </md-tab>
+                </form>
+              </md-card-content>
+            </md-card>
+            </d </md-content>
+      </md-tab>
 
-            <!-- <md-tab label="contact">
+      <!-- <md-tab label="contact">
                 <md-content class="md-padding" ng-controller="chanceCtrl">
                     <p>Email: jigzimon@gmail.com</p>
                     <p>Phone: +639260118502</p>
@@ -305,18 +331,18 @@
                     <a href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela" target="_blank"><i class="fa fa-stack-overflow fa-4x"></i></a>
                 </md-content>
             </md-tab> -->
-        </md-tabs>
-        </md-content>
+    </md-tabs>
+    </md-content>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-resource.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
 
-        <script src="scripts/app.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 
 </html>
