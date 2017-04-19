@@ -17,16 +17,21 @@
   <link rel="stylesheet" href="styles/app.css">
 </head>
 
-<body ng-cloak>
-  <md-content>
+<body ng-cloak >
+  <md-content ng-controller="themeCtrl" md-theme="{{theme}}" md-theme-watch="true">
+
+    <md-toolbar>
+      <md-button href="#" class="md-primary md-raised" ng-click="changeTheme()">
+        Change theme
+      </md-button>
+    </md-toolbar>
 
     <md-tabs md-dynamic-height="" md-border-bottom="">
-
-      <md-tab label="details">
+      <md-tab label="details" class="md-accent">
         <md-content class="md-padding" layout-xs="column" layout="row">
           <div flex-xs="" layout="column">
             <md-card ng-controller="chanceCtrl">
-              <md-card-header md-colors="::{backgroundColor: 'default-primary-700'}">
+              <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
                 <md-card-avatar>
                   <img class="md-user-avatar" src="pic.jpg">
                 </md-card-avatar>
@@ -41,7 +46,7 @@
 
               <md-card-title>
                 <md-card-title-text>
-                  <md-button ng-click="chance = chance + 1" class="md-raised md-primary">{{title}} {{chance}}0%</md-button>
+                  <md-button ng-click="chance = chance + 1" class="md-raised md-accent">{{title}} {{chance}}0%</md-button>
                 </md-card-title-text>
               </md-card-title>
 
@@ -64,7 +69,10 @@
                   </md-grid-tile>
                 </md-grid-list>
 
-                <p class="md-subhead">Age: 30
+                <md-divider></md-divider>
+
+                <p class="md-subhead" md-colors="::{color: 'accent'}">
+                  <br>Age: 30
                   <br>Location: Santo Tomas, Batangas
                   <br>Mobile: +639260118502
                   <br>Email: jigzimon@gmail.com</p>
@@ -72,7 +80,7 @@
             </md-card>
 
             <md-card>
-              <md-card-header md-colors="::{backgroundColor: 'default-primary-500'}">
+              <md-card-header md-colors="::{backgroundColor: 'primary-500'}">
                 <md-card-header-text>
                   <h1 class=".md-display-1">Work Experience</h1>
                 </md-card-header-text>
@@ -82,13 +90,13 @@
                 <md-list>
                   <md-list-item class="md-2-line" ng-repeat-start="exp in exps">
                     <div class="md-list-item-text">
-                      <h3>{{exp.company}}</h3>
-                      <p>{{exp.location}}</p>
-                      <p>{{exp.title}}</p>
-                      <p>{{exp.period}}</p>
-                      <ul>
+                      <h3 md-colors="::{color: 'primary'}">{{exp.company}}</h3>
+                      <p md-colors="::{color: 'accent'}">{{exp.location}}</p>
+                      <p md-colors="::{color: 'accent'}">{{exp.title}}</p>
+                      <p md-colors="::{color: 'warn'}">{{exp.period}}</p>
+                      <ol>
                         <li ng-repeat="task in exp.tasks">{{task.task}}</li>
-                      </ul>
+                      </ol>
                     </div>
                     <md-divider></md-divider>
                   </md-list-item>
@@ -103,14 +111,15 @@
         <md-content class="md-padding" layout-xs="column" layout="row">
           <div flex-xs="" layout="column">
             <md-card>
-              <md-card-header md-colors="::{backgroundColor: 'default-primary-700'}">
+              <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
                 <md-card-header-text>
+                  <md-tooltip>Proficiency in selected languages.</md-tooltip>
                   <h1 class=".md-display-1">Skills Overview</h1>
                 </md-card-header-text>
               </md-card-header>
 
               <md-card-content ng-controller="chartCtrl">
-                <ul class="progress">
+                <ul class="progress" ng-click="chartCtrl.reload()">
                   <li ng-repeat="language in languages" data-name={{language.name}} data-percent={{language.percent}}>
                     <svg viewBox="-10 -10 220 220">
                       <g fill="none" stroke-width="12" transform="translate(100,100)">
@@ -161,7 +170,7 @@
             </md-card>
 
             <md-card>
-              <md-card-header md-colors="::{backgroundColor: 'default-primary-500'}">
+              <md-card-header md-colors="::{backgroundColor: 'primary-500'}">
                 <md-card-header-text>
                   <h1 class=".md-title">Additional frameworks, libraries, and technologies...</h1>
                 </md-card-header-text>
@@ -169,6 +178,7 @@
 
               <md-card-content class="form-search" ng-controller="listCtrl">
                 <md-input-container>
+                  <md-tooltip>Do I have the skills you need?</md-tooltip>
                   <input id="skill-search" type="text" ng-model="search" placeholder="Search skills">
                 </md-input-container>
 
@@ -188,25 +198,25 @@
         <md-content class="md-padding" layout-xs="column" layout="row">
           <div flex-xs="" layout="column">
             <md-card>
-              <md-card-header md-colors="::{backgroundColor: 'default-primary-700'}">
+              <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
                 <md-card-header-text>
-                  <h1 class=".md-display-1">Wikipedia Search</h1>
+                  <h1 class=".md-display-1">Wikipedia Search using Wikipedia API</h1>
                 </md-card-header-text>
               </md-card-header>
 
               <md-card-content class="md-padding" ng-controller="wikiCtrl">
-                  <div layout="row" flex>
-                    <md-input-container flex class="md-icon-float md-block md-title">
-                      <md-icon class="material-icons">search</md-icon>
-                      <input id="search" placeholder="Enter search term..." ng-model="query">
-                    </md-input-container>
-                    <div>
-                      <md-button class="md-raised md-primary" onclick="location.href='https://en.wikipedia.org/wiki/Special:Random';">
-                        Surprise Me!
-                        <md-icon class="material-icons">shuffle</md-icon>
-                      </md-button>
-                    </div>
+                <div layout="row" flex>
+                  <md-input-container flex class="md-icon-float md-block md-title">
+                    <md-icon class="material-icons">search</md-icon>
+                    <input id="search" placeholder="Enter search term..." ng-model="query">
+                  </md-input-container>
+                  <div>
+                    <md-button class="md-raised md-primary" onclick="location.href='https://en.wikipedia.org/wiki/Special:Random';">
+                      Surprise Me!
+                      <md-icon class="material-icons">shuffle</md-icon>
+                    </md-button>
                   </div>
+                </div>
 
                 <md-card ng-repeat='data in wikiData'>
                   <md-card-header>
@@ -229,7 +239,8 @@
           <div flex-xs="" layout="column">
             <md-grid-list md-cols="2" md-gutter="1em" md-row-height="4:3">
               <md-grid-tile>
-                <md-card class="card-loc" ng-controller="locationCtrl" md-colors="::{backgroundColor: 'default-primary-500'}">
+                <md-tooltip>Click on icon to refresh.</md-tooltip>
+                <md-card class="card-loc" ng-controller="locationCtrl" md-colors="::{backgroundColor: 'primary-500'}">
                   <md-card-title>
                     <md-card-title-text>
                       <span class="md-headline">You are in:</span>
@@ -251,7 +262,8 @@
               </md-grid-tile>
 
               <md-grid-tile>
-                <md-card class="card-weather" ng-controller="weatherCtrl" md-colors="::{backgroundColor: 'default-primary-300'}">
+                <md-tooltip>Click on icon to refresh.</md-tooltip>
+                <md-card class="card-weather" ng-controller="weatherCtrl" md-colors="::{backgroundColor: 'primary-300'}">
                   <md-card-title>
                     <md-card-title-text>
                       <span class="md-headline">Going out?</span>
@@ -274,7 +286,7 @@
               </md-grid-tile>
             </md-grid-list>
 
-            <md-card class="card-todo" ng-controller="todoCtrl" md-colors="::{backgroundColor: 'default-primary-100'}">
+            <md-card class="card-todo" ng-controller="todoCtrl" md-colors="::{backgroundColor: 'primary-100'}">
               <md-card-title>
                 <md-card-title-text>
                   <span class="md-headline">Get Stuff Done!</span>
@@ -327,18 +339,11 @@
             </d </md-content>
       </md-tab>
 
-      <!-- <md-tab label="contact">
-                <md-content class="md-padding" ng-controller="chanceCtrl">
-                    <p>Email: jigzimon@gmail.com</p>
-                    <p>Phone: +639260118502</p>
-                    <md-button ng-click="chance = chance + 1" class="md-raised md-primary">{{title}} {{chance}}0%</md-button>
+      <md-tab label="settings">
+        <md-content class="md-padding" ng-controller="themeCtrl">
 
-                    <a href="https://www.facebook.com/jigzimon" target="_blank"><i class="fa fa-facebook-square fa-4x"></i></a>
-                    <a href="https://github.com/iamjigz" target="_blank"> <i class="fa fa-github-alt fa-4x"></i></a>
-                    <a href="http://codepen.io/iamjigz/" target="_blank"> <i class="fa fa-codepen fa-4x"></i></a>
-                    <a href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela" target="_blank"><i class="fa fa-stack-overflow fa-4x"></i></a>
-                </md-content>
-            </md-tab> -->
+        </md-content>
+      </md-tab>
     </md-tabs>
     </md-content>
 
@@ -351,6 +356,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
 
     <script src="scripts/app.js"></script>
+  </md-content>
 </body>
 
 </html>
