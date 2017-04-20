@@ -201,7 +201,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
       .primaryPalette('green')
-      .accentPalette('orange');
+      .accentPalette('deep-orange');
 
     $mdThemingProvider.theme('indigo')
       .primaryPalette('indigo')
@@ -209,11 +209,23 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
 
     $mdThemingProvider.theme('lime')
       .primaryPalette('lime')
-      .accentPalette('orange')
+      .accentPalette('deep-orange')
 
     $mdThemingProvider.theme('orange')
       .primaryPalette('orange')
       .accentPalette('red')
+
+    $mdThemingProvider.theme('cyan')
+      .primaryPalette('cyan')
+      .accentPalette('indigo')
+
+    $mdThemingProvider.theme('pink')
+      .primaryPalette('pink')
+      .accentPalette('deep-purple')
+
+    $mdThemingProvider.theme('brown')
+      .primaryPalette('brown')
+      .accentPalette('grey')
 
     $mdThemingProvider.alwaysWatchTheme(true);
   })
@@ -221,7 +233,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
   .controller('themeCtrl', function($scope) {
     $scope.theme = 'default';
     $scope.changeTheme = function() {
-      var themes = ['default', 'indigo', 'lime', 'orange'];
+      var themes = ['default', 'indigo', 'lime', 'orange', 'cyan', 'pink', 'brown'];
       var randomize = function(arr) {
         return arr[Math.floor(Math.random() * arr.length)];
       }
