@@ -126,39 +126,24 @@ li {
     background-color: rgba(255, 255, 255, 0.65) !important;
 }
 
-.example-animate-container {
-    background: #ececec;
-    list-style:none;
-    margin:0;
-    padding:0 10px;
-}
 
-.animate-repeat {
-    line-height:40px;
-    list-style:none;
-    /*box-sizing:border-box;*/
-    border-bottom: 1px solid white;
-    -webkit-transition: 1s linear all;
-    transition: 1s linear all;
-}
-
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter,
-.animate-repeat.ng-leave {
+.animate.ng-move,
+.animate.ng-enter,
+.animate.ng-leave {
     -webkit-transition:all linear 0.5s;
     transition:all linear 0.5s;
 }
 
-.animate-repeat.ng-leave.ng-leave-active,
-.animate-repeat.ng-move,
-.animate-repeat.ng-enter {
+.animate.ng-leave.ng-leave-active,
+.animate.ng-move,
+.animate.ng-enter {
     opacity:0;
     max-height:0;
 }
 
-.animate-repeat.ng-leave,
-.animate-repeat.ng-move.ng-move-active,
-.animate-repeat.ng-enter.ng-enter-active {
+.animate.ng-leave,
+.animate.ng-move.ng-move-active,
+.animate.ng-enter.ng-enter-active {
     opacity:1;
     max-height:40px;
 }
@@ -166,7 +151,7 @@ li {
 /**
  * Stagger Leave (hide) animation
  */
-.animate-repeat.ng-leave-stagger {
+.animate.ng-leave-stagger {
     /* this will have a 100ms delay between each successive leave animation */
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
@@ -180,7 +165,7 @@ li {
 /**
  * Stagger ENTER ANIMATION
  */
-.animate-repeat.ng-enter-stagger {
+.animate.ng-enter-stagger {
     /* this will have a 100ms delay between each successive enter animation */
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
