@@ -42,12 +42,13 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
                 d.link = data[3][i];
                 dataSet.push(d);
               }
+
               return dataSet;
             }
           }
         });
+
         $scope.wikiData = $scope.wiki.get()
-        console.log($scope.wikiData)
       }
     })
   })
@@ -55,28 +56,30 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
   .controller('locationCtrl', function($scope, $http, $rootScope) {
     $scope.getLoc = function() {
       $scope.myLoc = '';
-      //jsonp is required for cross origin requests.
-      $http.jsonp("http://ip-api.com/json/?callback=JSON_CALLBACK").
-      success(function(data) {
-        $scope.myLoc = data;
-        console.log('data', data);
-        $rootScope.loc = {
-          'lat': $scope.myLoc.lat,
-          'lon': $scope.myLoc.lon
-        };
-        //update weather now that we have location
-        $rootScope.$emit('updateWeather');
-      }).
-      error(function(data) {
-        $scope.myLoc = "Request failed";
-      });
+
+      //NOTE: jsonp is required for cross origin requests.
+      $http.jsonp("http://ip-api.com/json/?callback=JSON_CALLBACK")
+        .success(function(data) {
+          $scope.myLoc = data;
+          $rootScope.loc = {
+            'lat': $scope.myLoc.lat,
+            'lon': $scope.myLoc.lon
+          };
+
+          //Update weather now that we have location.
+          $rootScope.$emit('updateWeather');
+        })
+
+        .error(function(data) {
+          $scope.myLoc = "Request failed";
+        });
     };
 
     $scope.getLoc();
   })
 
   .controller('weatherCtrl', function($scope, $http, $rootScope) {
-    //allow cross controller calls.
+    //Allow cross controller calls.
     $rootScope.$on('updateWeather', function() {
       $scope.getWeather();
     });
@@ -84,30 +87,32 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
     $scope.getWeather = function() {
       $scope.wForecast = '';
       var city = $rootScope.loc;
+
       $http.jsonp("http://api.openweathermap.org/data/2.5/weather?lat=" + city.lat + "&lon=" + city.lon + "&units=metric&appid=907c6fe2c953ace0643a570472baef1a&callback=JSON_CALLBACK", {
-        dataType: 'json'
-      }).
-      success(function(data) {
-        $scope.wForecast = {
-          'humidity': data.main.humidity,
-          'temp': data.main.temp,
-          'abs': data.weather[0]
-        };
-        console.log('data', data);
-      }).
-      error(function(data) {
-        $scope.woeid = "Request failed";
-        console.log('data', data);
-      });
+          dataType: 'json'
+        })
+
+        .success(function(data) {
+          $scope.wForecast = {
+            'humidity': data.main.humidity,
+            'temp': data.main.temp,
+            'abs': data.weather[0]
+          };
+        })
+
+        .error(function(data) {
+          $scope.woeid = "Request failed";
+          console.log('data', data);
+        });
     };
   })
 
   .controller('todoCtrl', function($scope, $rootScope, $timeout) {
     var today = curDate();
-    loadList(); // load from local storage
+    //Load from local storage
+    loadList();
 
     if (!$scope.toDoList) {
-      //dummy values
       $scope.toDoList = [{
         desc: 'Create portfolio...',
         done: true,
@@ -126,7 +131,6 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
       }];
     };
 
-    //defaults
     $scope.addMode = false;
     $scope.newItem = {
       desc: '',
@@ -135,7 +139,6 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
       dt: today
     };
 
-    //add new item to list
     $scope.addItem = function() {
       $scope.toDoList.push($scope.newItem);
       $scope.newItem = {
@@ -144,18 +147,18 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
         due: '',
         dt: curDate()
       };
+
       $scope.toggleForm();
       saveList();
     };
 
-    //toggle add/view mode
     $scope.toggleForm = function() {
       $scope.addMode = !$scope.addMode;
     };
 
-    //clear completed items
     $scope.clearDoneItems = function() {
       var curList = $scope.toDoList;
+
       $scope.toDoList = [];
       angular.forEach(curList, function(item) {
         if (!item.done) {
@@ -163,7 +166,8 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
           $scope.toDoList.push(item);
         }
       });
-      //Temp workaround. Manual delete from local storage if still fail.
+
+      //Note: Temp workaround. Manual delete from local storage if still fail.
       document.querySelector('.is-checked').MaterialCheckbox.uncheck();
       saveList();
     };
@@ -175,6 +179,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
 
     function loadList() {
       var x = localStorage.getItem('toDoList');
+
       if (x != null) {
         $scope.toDoList = JSON.parse(x);
       }
@@ -192,6 +197,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
         msg: msg,
         show: true
       };
+
       $timeout(function() {
         $rootScope.toast.show = false;
       }, 2000);
