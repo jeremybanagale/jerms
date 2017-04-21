@@ -18,12 +18,24 @@
 </head>
 
 <body ng-cloak>
-  <md-content ng-controller="themeCtrl" md-theme="{{theme}}" md-theme-watch="true">
+  <md-content flex ng-controller="themeCtrl" md-theme="{{theme}}" md-theme-watch="true">
 
     <md-toolbar>
-      <md-button href="#" class="md-primary md-raised" ng-click="changeTheme()">
-        Change theme
-      </md-button>
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+          <md-icon class="material-icons">menu</md-icon>
+        </md-button>
+
+        <h2 flex="" md-truncate="">Theme Settings</h2>
+
+        <md-button href="#" class="md-primary md-raised" ng-click="changeTheme()">
+          Randomize
+        </md-button>
+
+        <md-switch ng-true-value="'yup'" ng-false-value="'nope'" class="md-accent">
+          <md-tooltip>Switch to Dark Theme</md-tooltip>
+        </md-switch>
+      </div>
     </md-toolbar>
 
     <md-tabs md-dynamic-height="" md-border-bottom="">
@@ -34,7 +46,7 @@
             <md-card>
               <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
                 <md-card-avatar>
-                  <img class="md-user-avatar" src="pic.jpg">
+                  <img class="md-user-avatar" src="imgs/profile.jpg">
                 </md-card-avatar>
 
                 <md-card-header-text>
@@ -43,7 +55,7 @@
                 </md-card-header-text>
               </md-card-header>
 
-              <img ng-src="http://www.wallpaperskid.com/wallpaper-images/146/justin-maller-ghosts-4k-LeuC2S.jpg" class="md-card-image">
+              <img ng-src="imgs/banner.jpg" class="md-card-image">
 
               <md-card-content layout="row" layout-align="center center" ng-controller="languageCtrl">
                 <ul class="progress" ng-click="languageCtrl.reload()">
@@ -280,7 +292,7 @@
                     <div ng-show="wForecast">
                       <span>Forecast: {{wForecast.abs.description}}</span>
                       <br>Humidity: {{wForecast.humidity}}
-                      <br>Temp: {{wForecast.temp + 'C'}}
+                      <br>Temp: {{wForecast.temp + ' C'}}
                     </div>
                   </md-card-content>
                 </md-card>
@@ -340,6 +352,57 @@
           </div>
         </md-content>
       </md-tab>
+
+      <!-- <md-tab label="todo">
+        <md-content class="md-padding" layout-xs="column" layout="row">
+          <div flex="" layout="column">
+
+            <md-card ng-controller="taskController">
+              <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
+                <md-card-header-text>
+                  <span class="md-headline">Whatcha doing?</span>
+                </md-card-header-text>
+              </md-card-header>
+
+            <md-card-content>
+            <form>
+              <div layout="row" flex>
+                <md-input-container flex class="md-icon-float md-title md-accent">
+                  <md-icon class="material-icons">search</md-icon>
+                  <input id="description" placeholder="What do you need to do?" ng-model="newTask">
+                </md-input-container>
+              </div>
+
+                <div class="inputContainer half last">
+                    <i class="fa fa-caret-down selectArrow"></i>
+                    <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
+                        <option class="disabled" value="">Choose a category</option>
+                    </select>
+                    <label for="category">Category</label>
+                </div>
+
+                <div class="inputContainer half last right">
+                    <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
+                    <label for="dueDate">Due Date</label>
+                </div>
+                <div class="row">
+                    <button class="taskAdd" ng-click="addNew()"><i class="fa fa-plus icon"></i>Add task</button>
+                    <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
+                </div>
+            </form>
+            <ul  class="taskList">
+                <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem"><input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
+                    <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span>
+                    <span class="category-{{taskItem.category}}">{{taskItem.category}}</span>
+                    <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong>
+                </li>
+            </ul><!-- taskList -->
+            </md-card-content>
+          </md-card>
+
+        </div>
+        </md-content>
+      </md-tab> -->
 
       <md-tab label="contact">
         <md-content class="md-padding" layout-xs="column" layout="row">
@@ -402,24 +465,33 @@
 
             </md-card>
 
-            
           </div>
         </md-content>
       </md-tab>
     </md-tabs>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-resource.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
-
-
-    <script src="scripts/app.js"></script>
-    <script src="scripts/data.js"></script>
     </md-content>
 </body>
+
+<footer>
+  <md-content layout="row" layout-align="center center" layout-margin md-colors="::{color: 'primary'}">
+    <span class="md-caption">Built by</span>
+    <span class="md-subhead" md-colors="::{color: 'accent'}">
+      Jigno Alfred V. Venezuela
+    </span>
+    <span class="md-caption">2017</span>
+  </md-content>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-resource.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
+
+
+  <script src="scripts/app.js"></script>
+  <script src="scripts/data.js"></script>
+</footer>
 
 </html>
