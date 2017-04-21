@@ -266,7 +266,7 @@
                 <md-card class="card-weather" ng-controller="weatherCtrl" md-colors="::{backgroundColor: 'accent-500'}">
                   <md-card-title>
                     <md-card-title-text>
-                    <md-tooltip>Click on icon to refresh.</md-tooltip>
+                      <md-tooltip>Click on icon to refresh.</md-tooltip>
                       <span class="md-headline">Going out?</span>
                     </md-card-title-text>
                     <md-button>
@@ -285,56 +285,56 @@
                   </md-card-content>
                 </md-card>
 
-              <md-card class="card-todo" ng-controller="todoCtrl" md-colors="::{backgroundColor: 'accent-300'}">
-                <md-card-title>
-                  <md-card-title-text>
-                    <span class="md-headline">Get Stuff Done!</span>
-                  </md-card-title-text>
-                  <md-button ng-click="toggleForm()">
-                    <label>Add Note</label>
-                    <md-icon>note_add</md-icon>
-                  </md-button>
-                  <md-button ng-click="clearDoneItems()">
-                    <label>Delete Note</label>
-                    <md-icon>delete_forever</md-icon>
-                  </md-button>
-                </md-card-title>
+                <md-card class="card-todo" ng-controller="todoCtrl" md-colors="::{backgroundColor: 'accent-300'}">
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="md-headline">Get Stuff Done!</span>
+                    </md-card-title-text>
+                    <md-button ng-click="toggleForm()">
+                      <label>Add Note</label>
+                      <md-icon>note_add</md-icon>
+                    </md-button>
+                    <md-button ng-click="clearDoneItems()">
+                      <label>Delete Note</label>
+                      <md-icon>delete_forever</md-icon>
+                    </md-button>
+                  </md-card-title>
 
-                <md-divider></md-divider>
+                  <md-divider></md-divider>
 
-                <md-card-content>
-                  <md-list id="list-view" ng-hide="addMode">
-                    <md-list-item class="md-2-line td-li item-done-{{item.done}}" ng-model="toDoList" ng-repeat="item in toDoList track by $index">
-                      <label for="checkbox-{{$index}}">
+                  <md-card-content>
+                    <md-list id="list-view" ng-hide="addMode">
+                      <md-list-item class="md-2-line td-li item-done-{{item.done}}" ng-model="toDoList" ng-repeat="item in toDoList track by $index">
+                        <label for="checkbox-{{$index}}">
                                                  <md-checkbox id="checkbox-{{$index}}" aria-label="checkbox" ng-model="item.done"></md-checkbox>
                                                  <span class="checkbox__label">{{item.desc}}</span>
                                               </label>
-                      <div class="item-due-date" ng-show="item.due">Due: {{item.due | date}} </div>
-                      <div class="item-due-date" ng-show="item.dt">Added: {{item.dt | date:'MMM dd, yyyy' }} </div>
-                      <md-divider md-inset></md-divider>
-                    </md-list-item>
-                  </md-list>
+                        <div class="item-due-date" ng-show="item.due">Due: {{item.due | date}} </div>
+                        <div class="item-due-date" ng-show="item.dt">Added: {{item.dt | date:'MMM dd, yyyy' }} </div>
+                        <md-divider md-inset></md-divider>
+                      </md-list-item>
+                    </md-list>
 
-                  <form id="add-view" ng-show="addMode" name="addNewForm" layout layout-align="center" layout-padding>
-                    <div layout="row" flex>
-                      <md-input-container flex class="md-icon-float md-block">
-                        <label>Description:</label>
-                        <input name="itemDesc" id="td-desc" aria-label="input" ng-model="newItem.desc" required>
-                      </md-input-container>
-                      <md-input-container>
-                        <label>Due Date:</label>
-                        <md-datepicker id="td-due" aria-label="date" ng-model="newItem.due"></md-datepicker>
-                      </md-input-container>
-                      <div>
-                        <md-button class="md-primary md-raised">
-                          <label>Save</label>
-                          <md-icon ng-click="addItem()" ng-disabled='!addNewForm.itemDesc.$valid'>save</md-icon>
-                        </md-button>
+                    <form id="add-view" ng-show="addMode" name="addNewForm" layout layout-align="center" layout-padding>
+                      <div layout="row" flex>
+                        <md-input-container flex class="md-icon-float md-block">
+                          <label>Description:</label>
+                          <input name="itemDesc" id="td-desc" aria-label="input" ng-model="newItem.desc" required>
+                        </md-input-container>
+                        <md-input-container>
+                          <label>Due Date:</label>
+                          <md-datepicker id="td-due" aria-label="date" ng-model="newItem.due"></md-datepicker>
+                        </md-input-container>
+                        <div>
+                          <md-button class="md-primary md-raised">
+                            <label>Save</label>
+                            <md-icon ng-click="addItem()" ng-disabled='!addNewForm.itemDesc.$valid'>save</md-icon>
+                          </md-button>
+                        </div>
                       </div>
-                    </div>
-                  </form>
-                </md-card-content>
-              </md-card>
+                    </form>
+                  </md-card-content>
+                </md-card>
 
             </md-card>
           </div>
@@ -342,30 +342,71 @@
       </md-tab>
 
       <md-tab label="contact">
-        <md-content class="md-padding" ng-controller="chanceCtrl">
-          <md-button ng-click="chance = chance + 1" class="md-raised md-accent">{{title}} {{chance}}0%</md-button>
+        <md-content class="md-padding" layout-xs="column" layout="row">
+          <div flex="" layout="column">
 
-          <md-grid-list md-cols="5" md-gutter="1em" md-row-height="4:3">
-            <md-grid-tile>
-              <a href="https://www.facebook.com/jigzimon" target="_blank"><i class="fa fa-4x fa-facebook-square"></i></a>
-            </md-grid-tile>
-            <md-grid-tile>
-              <a href="https://www.linkedin.com/in/jigno-alfred-venezuela-757600b3/" target="_blank"><i class="fa fa-4x fa-linkedin-square"></i></a>
-            </md-grid-tile>
-            <md-grid-tile>
-              <a href="https://github.com/iamjigz" target="_blank"> <i class="fa fa-4x fa-github-alt"></i></a>
-            </md-grid-tile>
-            <md-grid-tile>
-              <a href="http://codepen.io/iamjigz/" target="_blank"> <i class="fa fa-4x fa-codepen"></i></a>
-            </md-grid-tile>
-            <md-grid-tile>
-              <a href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela" target="_blank"><i class="fa fa-4x fa-stack-overflow"></i></a>
-            </md-grid-tile>
-          </md-grid-list>
+            <md-card>
+              <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
+                <md-card-header-text>
+                  <span class="md-headline">Social Links</span>
+                </md-card-header-text>
+              </md-card-header>
+
+              <md-card-content>
+                <md-grid-list md-cols="5" md-gutter="1em" md-row-height="4:3" md-colors="::{color: 'accent'}">
+                  <md-grid-tile>
+                    <md-button ng-href="https://www.facebook.com/jigzimon" target="_blank">
+                      <md-tooltip>Facebook</md-tooltip>
+                      <i class="fa fa-4x fa-facebook-square"></i>
+                    </md-button>
+                  </md-grid-tile>
+
+                  <md-grid-tile>
+                    <md-button ng-href="https://www.linkedin.com/in/jigno-alfred-venezuela-757600b3/" target="_blank">
+                      <md-tooltip>LinkedIn</md-tooltip>
+                      <i class="fa fa-4x fa-linkedin-square"></i>
+                    </md-button>
+                  </md-grid-tile>
+
+                  <md-grid-tile>
+                    <md-button ng-href="https://github.com/iamjigz" target="_blank">
+                      <md-tooltip>Github</md-tooltip>
+                      <i class="fa fa-4x fa-github-alt"></i>
+                    </md-button>
+                  </md-grid-tile>
+
+                  <md-grid-tile>
+                    <md-button ng-href="http://codepen.io/iamjigz/" target="_blank">
+                      <md-tooltip>Codepen</md-tooltip>
+                      <i class="fa fa-4x fa-codepen"></i>
+                    </md-button>
+                  </md-grid-tile>
+
+                  <md-grid-tile>
+                    <md-button ng-href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela" target="_blank">
+                      <md-tooltip>Stack Overflow</md-tooltip>
+                      <i class="fa fa-4x fa-stack-overflow"></i>
+                    </md-button>
+                  </md-grid-tile>
+                </md-grid-list>
+              </md-card-content>
+            </md-card>
+
+            <md-card ng-controller="chanceCtrl">
+              <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
+                <md-card-header-text>
+                  <h1 class="md-title">Would you hire me?</h1>
+                  <md-button ng-click="chance = chance + 1" class="md-raised md-accent">{{title}} {{chance}}0%</md-button>
+                </md-card-header-text>
+              </md-card-header>
+
+            </md-card>
+
+            
+          </div>
         </md-content>
       </md-tab>
     </md-tabs>
-    </md-content>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-resource.min.js"></script>
@@ -378,7 +419,7 @@
 
     <script src="scripts/app.js"></script>
     <script src="scripts/data.js"></script>
-  </md-content>
+    </md-content>
 </body>
 
 </html>
