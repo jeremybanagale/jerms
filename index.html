@@ -375,7 +375,7 @@
             <md-content ng-controller="githubCtrl">
               <md-toolbar md-scroll-shrink>
                 <div class="md-toolbar-tools">
-                  <h1 flex md-truncate class="md-headline">View this project on GitHub</h1>
+                  <h1 flex md-truncate class="md-headline">View project commmits from GitHub</h1>
                   <md-button ng-click="getGitInfo()" class="md-raised md-title md-accent">
                     View
                   </md-button>
@@ -411,7 +411,7 @@
 
                       <md-card-header-text>
                         <span class="md-title">{{commit.commit.message}}</span>
-                        <span class="md-subhead">{{commit.commit.committer.date}}</span>
+                        <span class="md-subhead">{{commit.commit.committer.date | date: 'MM/dd/yyyy HH:mm'}}</span>
                       </md-card-header-text>
                     </md-card-header>
                   </md-card>

@@ -145,14 +145,6 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
              .error(function () {
                 $scope.userNotFound = true;
              });
-      //  $http.get("https://api.github.com/users/iamjigz/repos").success(function (data) {
-      //     $scope.repos = data;
-      //     $scope.reposFound = data.length > 0;
-      //  });
-       //
-      //  $scope.getRepo = function(element) {
-      //     return element.name.match(/^jigz/) ? true : false;
-      //   }
 
         $http.get("https://api.github.com/repos/iamjigz/jigz/commits").success(function (data) {
            $scope.commits = data;
