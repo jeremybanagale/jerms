@@ -286,17 +286,17 @@
                   <md-list-item ng-repeat-start="taskItem in taskItem track by $index">
                     <div flex>
                       <md-card>
-                        <md-card-title md-colors="::{backgroundColor: 'primary'}">
+                        <md-card-title md-colors="::{backgroundColor: 'primary-100'}">
                           <md-card-title-text>
                             <div layout="row" flex>
-                              <md-checkbox class="md-title" ng-model="taskItem.complete" ng-change="save()"></md-checkbox>
+                              <md-checkbox class="md-title" ng-model="taskItem.complete" ng-change="save()" aria-label="taskComplete"></md-checkbox>
                               <span class="md-headline">{{taskItem.description}}</span>
                             </div>
-                            <span class="md-subhead">{{taskItem.category}}</span>
                           </md-card-title-text>
                         </md-card-title>
 
-                        <md-card-content layout="row" layout-align="end center" md-colors="::{backgroundColor: 'accent'}">
+                        <md-card-content layout="row" layout-align="end center" md-colors="::{backgroundColor: 'accent-100'}">
+                          <span class="md-subhead">{{taskItem.category}}</span>
                           <i class="material-icons">date_range</i>
                           <span class="md-subhead">
                           {{taskItem.date | date : 'mediumDate'}}
