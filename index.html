@@ -20,16 +20,12 @@
 <body ng-cloak>
   <md-content flex ng-controller="themeCtrl" md-theme="{{theme}}" md-theme-watch="true">
 
-    <md-toolbar>
+    <md-toolbar md-scroll-shrink="">
       <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
-          <md-icon class="material-icons">menu</md-icon>
-        </md-button>
-
-        <h2 flex="" md-truncate="">Theme Settings</h2>
+        <h2 flex="" md-truncate="">Portfolio Page</h2>
 
         <md-button href="#" class="md-primary md-raised" ng-click="changeTheme()">
-          Randomize
+          Random Theme
         </md-button>
 
         <md-switch ng-true-value="'yup'" ng-false-value="'nope'" class="md-accent">
@@ -242,167 +238,79 @@
           </md-card-content>
       </md-tab>
 
-      <md-tab label="cards">
-        <md-content class="md-padding" layout-xs="column" layout="row">
-          <div flex="" layout="column">
-            <md-card>
-              <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
-                <md-card-header-text>
-                  <h1 class="md-title">Not your typical post-it notes!</h1>
-                </md-card-header-text>
-              </md-card-header>
-
-              <md-card-content>
-
-                <md-card class="card-loc" ng-controller="locationCtrl" md-colors="::{backgroundColor: 'accent-700'}">
-                  <md-card-title>
-                    <md-card-title-text>
-                      <md-tooltip>Click on icon to refresh.</md-tooltip>
-                      <span class="md-headline">You are in:</span>
-                    </md-card-title-text>
-                    <md-button>
-                      <md-icon ng-click="getLoc()">room</md-icon>
-                    </md-button>
-                  </md-card-title>
-
-                  <md-divider></md-divider>
-
-                  <md-card-content>
-                    <div ng-show="myLoc">
-                      <p>IP: {{myLoc.query}}
-                        <br>Address: {{myLoc.city}}, {{myLoc.regionName}}</p>
-                    </div>
-                  </md-card-content>
-                </md-card>
-
-                <md-card class="card-weather" ng-controller="weatherCtrl" md-colors="::{backgroundColor: 'accent-500'}">
-                  <md-card-title>
-                    <md-card-title-text>
-                      <md-tooltip>Click on icon to refresh.</md-tooltip>
-                      <span class="md-headline">Going out?</span>
-                    </md-card-title-text>
-                    <md-button>
-                      <md-icon ng-click="getWeather()">location_searching</md-icon>
-                    </md-button>
-                  </md-card-title>
-
-                  <md-divider></md-divider>
-
-                  <md-card-content>
-                    <div ng-show="wForecast">
-                      <span>Forecast: {{wForecast.abs.description}}</span>
-                      <br>Humidity: {{wForecast.humidity}}
-                      <br>Temp: {{wForecast.temp + ' C'}}
-                    </div>
-                  </md-card-content>
-                </md-card>
-
-                <md-card class="card-todo" ng-controller="todoCtrl" md-colors="::{backgroundColor: 'accent-300'}">
-                  <md-card-title>
-                    <md-card-title-text>
-                      <span class="md-headline">Get Stuff Done!</span>
-                    </md-card-title-text>
-                    <md-button ng-click="toggleForm()">
-                      <label>Add Note</label>
-                      <md-icon>note_add</md-icon>
-                    </md-button>
-                    <md-button ng-click="clearDoneItems()">
-                      <label>Delete Note</label>
-                      <md-icon>delete_forever</md-icon>
-                    </md-button>
-                  </md-card-title>
-
-                  <md-divider></md-divider>
-
-                  <md-card-content>
-                    <md-list id="list-view" ng-hide="addMode">
-                      <md-list-item class="md-2-line td-li item-done-{{item.done}}" ng-model="toDoList" ng-repeat="item in toDoList track by $index">
-                        <label for="checkbox-{{$index}}">
-                                                 <md-checkbox id="checkbox-{{$index}}" aria-label="checkbox" ng-model="item.done"></md-checkbox>
-                                                 <span class="checkbox__label">{{item.desc}}</span>
-                                              </label>
-                        <div class="item-due-date" ng-show="item.due">Due: {{item.due | date}} </div>
-                        <div class="item-due-date" ng-show="item.dt">Added: {{item.dt | date:'MMM dd, yyyy' }} </div>
-                        <md-divider md-inset></md-divider>
-                      </md-list-item>
-                    </md-list>
-
-                    <form id="add-view" ng-show="addMode" name="addNewForm" layout layout-align="center" layout-padding>
-                      <div layout="row" flex>
-                        <md-input-container flex class="md-icon-float md-block">
-                          <label>Description:</label>
-                          <input name="itemDesc" id="td-desc" aria-label="input" ng-model="newItem.desc" required>
-                        </md-input-container>
-                        <md-input-container>
-                          <label>Due Date:</label>
-                          <md-datepicker id="td-due" aria-label="date" ng-model="newItem.due"></md-datepicker>
-                        </md-input-container>
-                        <div>
-                          <md-button class="md-primary md-raised">
-                            <label>Save</label>
-                            <md-icon ng-click="addItem()" ng-disabled='!addNewForm.itemDesc.$valid'>save</md-icon>
-                          </md-button>
-                        </div>
-                      </div>
-                    </form>
-                  </md-card-content>
-                </md-card>
-
-            </md-card>
-          </div>
-        </md-content>
-      </md-tab>
-
-      <!-- <md-tab label="todo">
+      <md-tab label="todo">
         <md-content class="md-padding" layout-xs="column" layout="row">
           <div flex="" layout="column">
 
             <md-card ng-controller="taskController">
               <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
                 <md-card-header-text>
-                  <span class="md-headline">Whatcha doing?</span>
+                  <span class="md-headline">Planning to take over the world?</span>
                 </md-card-header-text>
               </md-card-header>
 
-            <md-card-content>
-            <form>
-              <div layout="row" flex>
-                <md-input-container flex class="md-icon-float md-title md-accent">
-                  <md-icon class="material-icons">search</md-icon>
-                  <input id="description" placeholder="What do you need to do?" ng-model="newTask">
-                </md-input-container>
-              </div>
+              <md-card-content>
+                <form>
+                  <div layout="row" flex>
+                    <md-input-container flex class="md-icon-float md-title md-accent">
+                      <md-icon class="material-icons">search</md-icon>
+                      <input id="description" placeholder="What do you need to do?" ng-model="newTask">
+                    </md-input-container>
+                  </div>
 
-                <div class="inputContainer half last">
-                    <i class="fa fa-caret-down selectArrow"></i>
-                    <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
-                        <option class="disabled" value="">Choose a category</option>
-                    </select>
-                    <label for="category">Category</label>
-                </div>
+                  <div layout="row" flex>
+                    <div flex>
+                      <md-datepicker ng-model="newTaskDate" md-placeholder="Enter date"></md-datepicker>
 
-                <div class="inputContainer half last right">
-                    <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
-                    <label for="dueDate">Due Date</label>
-                </div>
-                <div class="row">
-                    <button class="taskAdd" ng-click="addNew()"><i class="fa fa-plus icon"></i>Add task</button>
-                    <button class="taskDelete" ng-click="deleteTask()"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
-                </div>
-            </form>
-            <ul  class="taskList">
-                <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem"><input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
-                    <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span>
-                    <span class="category-{{taskItem.category}}">{{taskItem.category}}</span>
-                    <strong class="taskDate complete-{{taskItem.complete}}"><i class="fa fa-calendar"></i>{{taskItem.date | date : 'mediumDate'}}</strong>
-                </li>
-            </ul><!-- taskList -->
-            <!-- </md-card-content>
-          </md-card>
+                      <md-input-container style="margin-right: 10px;">
+                        <label>Choose a category</label>
+                        <md-select ng-model="newTaskCategory">
+                          <md-option ng-repeat="obj in categories" value="{{obj.name}}">{{obj.name}}</md-option>
+                        </md-select>
+                      </md-input-container>
 
-        </div>
+                      <md-button class="md-raised md-primary" ng-click="addNew()">
+                        Add
+                        <md-icon class="material-icons">note_add</md-icon>
+                      </md-button>
+
+                      <md-button class="md-raised md-accent" ng-click="deleteTask()">
+                        Delete
+                        <md-icon class="material-icons">delete_forever</md-icon>
+                      </md-button>
+                    </div>
+                  </div>
+                </form>
+
+                <md-list ng-model="taskItem">
+                  <md-list-item ng-repeat-start="taskItem in taskItem track by $index">
+                    <div flex>
+                      <md-card>
+                        <md-card-title md-colors="::{backgroundColor: 'primary'}">
+                          <md-card-title-text layout="row" flex>
+                            <md-checkbox class="md-title" ng-model="taskItem.complete" ng-change="save()"></md-checkbox>
+                            <span class="md-headline">{{taskItem.description}}</span>
+                            <span class="md-subhead">{{taskItem.category}}</span>
+                          </md-card-title-text>
+                        </md-card-title>
+
+                        <md-card-content layout="row" layout-align="end center" md-colors="::{backgroundColor: 'accent'}">
+                          <i class="material-icons">date_range</i>
+                          <span class="md-subhead">
+                          {{taskItem.date | date : 'mediumDate'}}
+                        </span>
+                        </md-card-content>
+                      </md-card>
+                    </div>
+                  </md-list-item>
+                  <div ng-repeat-end></div>
+                </md-list>
+
+              </md-card-content>
+
+          </div>
         </md-content>
-      </md-tab> --> -->
+      </md-tab> -->
 
       <md-tab label="contact">
         <md-content class="md-padding" layout-xs="column" layout="row">

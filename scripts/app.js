@@ -208,7 +208,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
       $scope.today = new Date();
       $scope.saved = localStorage.getItem('taskItems');
       $scope.taskItem = (localStorage.getItem('taskItems')!==null) ?
-      JSON.parse($scope.saved) : [ {description: "Why not add a task?", date: $scope.today, complete: false}];
+      JSON.parse($scope.saved) : [ {description: "Why not add a task?", category: "Other", date: $scope.today, complete: false}];
       localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
 
       $scope.newTask = null;
