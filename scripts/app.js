@@ -132,6 +132,36 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
     };
   })
 
+  .controller('githubCtrl', function($scope,$http) {
+    $scope.getGitInfo = function () {
+       $scope.userNotFound = false;
+       $scope.loaded = false;
+       $http.get("https://api.github.com/users/iamjigz")
+             .success(function (data) {
+                if (data.name == "") data.name = data.login;
+                $scope.user = data;
+                $scope.loaded = true;
+             })
+             .error(function () {
+                $scope.userNotFound = true;
+             });
+      //  $http.get("https://api.github.com/users/iamjigz/repos").success(function (data) {
+      //     $scope.repos = data;
+      //     $scope.reposFound = data.length > 0;
+      //  });
+       //
+      //  $scope.getRepo = function(element) {
+      //     return element.name.match(/^jigz/) ? true : false;
+      //   }
+
+        $http.get("https://api.github.com/repos/iamjigz/jigz/commits").success(function (data) {
+           $scope.commits = data;
+           $scope.commitsFound = data.length > 0;
+           console.log(data);
+        });
+    }
+ })
+
   .service('$mdShowToast', function($mdToast) {
     return {
       show: function(content) {

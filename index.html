@@ -22,7 +22,7 @@
 
     <md-toolbar md-scroll-shrink="">
       <div class="md-toolbar-tools">
-        <h2 flex="" md-truncate="">Portfolio Page</h2>
+        <h2 flex md-truncate>Portfolio Page</h2>
 
         <md-button href="#" class="md-primary md-raised" ng-click="changeTheme()">
           Random Theme
@@ -46,8 +46,8 @@
                 </md-card-avatar>
 
                 <md-card-header-text>
-                  <span class="md-headline">Jigno Alfred V. Venezuela</span>
-                  <span class="md-title">Web Developer</span>
+                  <span class="md-title">Jigno Alfred V. Venezuela</span>
+                  <span class="md-subhead">Web Developer</span>
                 </md-card-header-text>
               </md-card-header>
 
@@ -318,12 +318,19 @@
         <md-content class="md-padding" layout-xs="column" layout="row">
           <div flex="" layout="column">
 
-            <md-card>
+            <md-card ng-controller="chanceCtrl">
               <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
                 <md-card-header-text>
-                  <span class="md-headline">Social Links</span>
+                  <h1 md-truncate class="md-title">Would you hire me?</h1>
+                  <md-button ng-click="chance = chance + 1" class="md-raised md-accent">{{title}} {{chance}}0%</md-button>
                 </md-card-header-text>
               </md-card-header>
+
+              <md-card-title md-colors="::{backgroundColor: 'primary-300'}">
+                <md-card-title-text>
+                  <h1 class="md-title">Social Links:</h1>
+                </md-card-title-text>
+              </md-card-title>
 
               <md-card-content>
                 <md-grid-list md-cols="5" md-gutter="1em" md-row-height="4:3" md-colors="::{color: 'accent'}">
@@ -365,18 +372,54 @@
               </md-card-content>
             </md-card>
 
-            <md-card ng-controller="chanceCtrl">
-              <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
-                <md-card-header-text>
-                  <h1 class="md-title">Would you hire me?</h1>
-                  <md-button ng-click="chance = chance + 1" class="md-raised md-accent">{{title}} {{chance}}0%</md-button>
-                </md-card-header-text>
-              </md-card-header>
+            <md-content ng-controller="githubCtrl">
+              <md-toolbar md-scroll-shrink>
+                <div class="md-toolbar-tools">
+                  <h1 flex md-truncate class="md-headline">View this project on GitHub</h1>
+                  <md-button ng-click="getGitInfo()" class="md-raised md-title md-accent">
+                    View
+                  </md-button>
+                </div>
+              </md-toolbar>
 
-            </md-card>
+              <md-card ng-show="loaded">
+                <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
+                  <md-card-avatar ng-show="loaded">
+                    <img class="md-user-avatar" src="{{user.avatar_url}}">
+                  </md-card-avatar>
+
+                  <md-card-header-text layout="column" layout-align="center start">
+                    <span class="md-headline">{{user.name}}</span>
+                    <md-button md-truncate ng-href="{{user.html_url}}" target="_blank">
+                      <span class="md-primary">( @{{user.login}} )</span>
+                    </md-button>
+                  </md-card-header-text>
+                </md-card-header>
+
+                <md-card-title>
+                  <md-card-title-text layout="row" layout-align="center center">
+                    <span class="md-title">Followers: {{user.followers}} - Following: {{user.following}} - Repos: {{user.public_repos}}</span>
+                  </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content ng-show="commitsFound">
+                  <md-card ng-repeat="commit in commits">
+                    <md-card-header md-colors="::{backgroundColor: 'accent-300'}">
+                      <md-card-avatar ng-show="loaded">
+                        <img class="md-user-avatar" src="{{commit.committer.avatar_url}}">
+                      </md-card-avatar>
+
+                      <md-card-header-text>
+                        <span class="md-title">{{commit.commit.message}}</span>
+                        <span class="md-subhead">{{commit.commit.committer.date}}</span>
+                      </md-card-header-text>
+                    </md-card-header>
+                  </md-card>
+                </md-card-content>
+              </md-card>
 
           </div>
-        </md-content>
+          </md-content>
       </md-tab>
     </md-tabs>
     </md-content>
