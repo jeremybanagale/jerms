@@ -242,7 +242,7 @@
         <md-content class="md-padding" layout-xs="column" layout="row">
           <div flex="" layout="column">
 
-            <md-card ng-controller="taskController">
+            <md-card ng-controller="taskCtrl">
               <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
                 <md-card-header-text>
                   <span class="md-headline">Planning to take over the world?</span>
@@ -287,9 +287,11 @@
                     <div flex>
                       <md-card>
                         <md-card-title md-colors="::{backgroundColor: 'primary'}">
-                          <md-card-title-text layout="row" flex>
-                            <md-checkbox class="md-title" ng-model="taskItem.complete" ng-change="save()"></md-checkbox>
-                            <span class="md-headline">{{taskItem.description}}</span>
+                          <md-card-title-text>
+                            <div layout="row" flex>
+                              <md-checkbox class="md-title" ng-model="taskItem.complete" ng-change="save()"></md-checkbox>
+                              <span class="md-headline">{{taskItem.description}}</span>
+                            </div>
                             <span class="md-subhead">{{taskItem.category}}</span>
                           </md-card-title-text>
                         </md-card-title>

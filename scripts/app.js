@@ -204,7 +204,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
     }
   })
 
-  .controller('taskController', function($scope) {
+  .controller('taskCtrl', function($scope) {
       $scope.today = new Date();
       $scope.saved = localStorage.getItem('taskItems');
       $scope.taskItem = (localStorage.getItem('taskItems')!==null) ?
