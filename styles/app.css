@@ -16,50 +16,6 @@ body {
     margin: 20px auto;
 }
 
-img {
-    width: 150px;
-    height: 150px;
-}
-
-.fa {
-    -webkit-align-self: flex-start;
-    align-self: flex-start;
-    margin-left: auto;
-    cursor: pointer;
-}
-
-.fa i:hover {
-  color: rgb(255, 87, 34);
-}
-
-.fa i {
-  transition: transform 500ms linear;
-  font-size: 28px;
-}
-
-ul {
-    counter-reset: li;
-    list-style: none;
-    font: 15px 'trebuchet MS', 'lucida sans';
-    padding: 0;
-    margin-bottom: 4em;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-    display: block;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
-}
-
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-
-#info {
-  float: right;
-}
 /* ----- SKILLS PROGRESS -------- */
 .progress {
     position: relative;
