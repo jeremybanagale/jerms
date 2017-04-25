@@ -122,6 +122,48 @@
                       </div>
                     </md-list-item>
                   </md-list>
+                </md-card-content>
+
+                <md-divider></md-divider>
+
+                <md-card-footer>
+                  <md-grid-list md-cols="5" md-gutter="1em" md-row-height="4:3" md-colors="::{color: 'accent'}">
+                    <md-grid-tile>
+                      <md-button ng-href="https://www.facebook.com/jigzimon" target="_blank">
+                        <md-tooltip>Facebook</md-tooltip>
+                        <i class="fa fa-4x fa-facebook-square"></i>
+                      </md-button>
+                    </md-grid-tile>
+
+                    <md-grid-tile>
+                      <md-button ng-href="https://www.linkedin.com/in/jigno-alfred-venezuela-757600b3/" target="_blank">
+                        <md-tooltip>LinkedIn</md-tooltip>
+                        <i class="fa fa-4x fa-linkedin-square"></i>
+                      </md-button>
+                    </md-grid-tile>
+
+                    <md-grid-tile>
+                      <md-button ng-href="https://github.com/iamjigz" target="_blank">
+                        <md-tooltip>Github</md-tooltip>
+                        <i class="fa fa-4x fa-github-alt"></i>
+                      </md-button>
+                    </md-grid-tile>
+
+                    <md-grid-tile>
+                      <md-button ng-href="http://codepen.io/iamjigz/" target="_blank">
+                        <md-tooltip>Codepen</md-tooltip>
+                        <i class="fa fa-4x fa-codepen"></i>
+                      </md-button>
+                    </md-grid-tile>
+
+                    <md-grid-tile>
+                      <md-button ng-href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela" target="_blank">
+                        <md-tooltip>Stack Overflow</md-tooltip>
+                        <i class="fa fa-4x fa-stack-overflow"></i>
+                      </md-button>
+                    </md-grid-tile>
+                  </md-grid-list>
+                </md-card-footer>
               </md-card>
             </md-card>
 
@@ -332,14 +374,14 @@
 
               <md-card ng-show="loaded">
                 <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
-                  <md-card-avatar ng-show="loaded">
+                  <md-card-avatar>
                     <img class="md-user-avatar" src="{{user.avatar_url}}">
                   </md-card-avatar>
 
                   <md-card-header-text layout="column" layout-align="center start">
-                    <span class="md-headline">{{user.name}}</span>
+                    <span class="md-title">{{user.name}}</span>
                     <md-button md-truncate ng-href="{{user.html_url}}" target="_blank">
-                      <span class="md-primary">( @{{user.login}} )</span>
+                      <span class="md-subhead md-accent">( @{{user.login}} )</span>
                     </md-button>
                   </md-card-header-text>
                 </md-card-header>
@@ -363,7 +405,6 @@
                     <md-card-content>
                       <pre ng-bind-html="readme"></pre>
                     </md-card-content>
-
                   </md-card>
 
                   <md-card ng-repeat="commit in commits | limitTo: limit">
@@ -401,12 +442,6 @@
             </md-content>
           </div>
         </md-content>
-      </md-tab>
-
-      <md-tab label="contact">
-
-        <div ng-include="'partials/contact.htm'"></div>
-
       </md-tab>
     </md-tabs>
   </md-content>

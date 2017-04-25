@@ -1,6 +1,14 @@
 angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.router"])
-  .controller("chanceCtrl", function($scope) {
-    $scope.title = "Chance to hire is";
+  .controller('themeCtrl', function($scope) {
+    $scope.theme = 'default';
+    $scope.changeTheme = function() {
+      var themes = ['default', 'indigo', 'lime', 'orange', 'cyan', 'pink', 'brown'];
+      var randomize = function(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      $scope.theme = randomize(themes);
+    };
   })
 
   .controller('workCtrl', function($scope) {
@@ -100,7 +108,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
       $scope.newTaskDate = '';
       $scope.newTaskCategory = $scope.categories;
       localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
-      $mdShowToast.show('Save');
+      $mdShowToast.show('Saved task.');
     };
 
     $scope.deleteTask = function() {
@@ -112,7 +120,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
         }
       });
       localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
-      $mdShowToast.show('Delete');
+      $mdShowToast.show('Deleted task.');
     };
 
     $scope.save = function() {
@@ -120,49 +128,38 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
     };
   })
 
-  .controller('themeCtrl', function($scope) {
-    $scope.theme = 'default';
-    $scope.changeTheme = function() {
-      var themes = ['default', 'indigo', 'lime', 'orange', 'cyan', 'pink', 'brown'];
-      var randomize = function(arr) {
-        return arr[Math.floor(Math.random() * arr.length)];
-      }
-
-      $scope.theme = randomize(themes);
-    };
-  })
-
-  .controller('githubCtrl', function($scope, $http, GitReadme, $sce) {
+  .controller('githubCtrl', function($scope, $http, getGit, $sce) {
     $scope.getGitInfo = function() {
-      $scope.userNotFound = false;
       $scope.loaded = false;
-      $http.get("https://api.github.com/users/iamjigz")
-        .success(function(data) {
-          if (data.name == "") data.name = data.login;
-          $scope.user = data;
-          $scope.loaded = true;
-        })
-        .error(function() {
-          $scope.userNotFound = true;
-        });
 
-      $http.get("https://api.github.com/repos/iamjigz/jigz/commits").success(function(data) {
-        $scope.commits = data;
-        $scope.commitsFound = data.length > 0;
-        $scope.limit = 5;
-        $scope.maxLimit = data.length;
+      getGit.getUser().then(function(res) {
+        if (res.data.name == "") res.data.name = res.data.login;
+
+        $scope.user = res.data;
+        $scope.loaded = true;
+      }).catch(function(res) {
+        console.log("catch", res);
       });
 
-      GitReadme.getReadme().then(function(resp) {
-        $scope.readme = $sce.trustAsHtml(resp.data);
-      }).catch(function(resp) {
-        console.log("catch", resp);
+      getGit.getRepo().then(function(res) {
+        $scope.commits = res.data;
+        $scope.commitsFound = res.data.length > 0;
+        $scope.limit = 5;
+        $scope.maxLimit = res.data.length;
+      }).catch(function(res) {
+        console.log("catch", res);
+      });
+
+      getGit.getReadme().then(function(res) {
+        $scope.readme = $sce.trustAsHtml(res.data);
+      }).catch(function(res) {
+        console.log("catch", res);
       });
 
     }
   })
 
-  .service('GitReadme', function($http) {
+  .service('getGit', function($http) {
     return {
       getReadme: function() {
         return $http.get("https://api.github.com/repos/iamjigz/jigz/readme", {
@@ -170,6 +167,12 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
             "Accept": "application/vnd.github.v3.raw"
           }
         });
+      },
+      getUser: function() {
+        return $http.get("https://api.github.com/users/iamjigz");
+      },
+      getRepo: function() {
+        return $http.get("https://api.github.com/repos/iamjigz/jigz/commits");
       }
     };
   })
@@ -221,12 +224,3 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
 
     $mdThemingProvider.alwaysWatchTheme(true);
   })
-
-//   .directive("contactView", function() {
-//   return {
-//     restrict: 'A',
-//     templateUrl: 'partials/contact.html',
-//     scope: true,
-//     transclude : false
-//   };
-// })
