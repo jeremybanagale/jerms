@@ -132,45 +132,61 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
     };
   })
 
-  .controller('githubCtrl', function($scope,$http) {
-    $scope.getGitInfo = function () {
-       $scope.userNotFound = false;
-       $scope.loaded = false;
-       $http.get("https://api.github.com/users/iamjigz")
-             .success(function (data) {
-                if (data.name == "") data.name = data.login;
-                $scope.user = data;
-                $scope.loaded = true;
-             })
-             .error(function () {
-                $scope.userNotFound = true;
-             });
-
-        $http.get("https://api.github.com/repos/iamjigz/jigz/commits").success(function (data) {
-           $scope.commits = data;
-           $scope.commitsFound = data.length > 0;
-           $scope.limit = 5;
-           $scope.maxLimit = data.length;
+  .controller('githubCtrl', function($scope, $http, GitReadme, $sce) {
+    $scope.getGitInfo = function() {
+      $scope.userNotFound = false;
+      $scope.loaded = false;
+      $http.get("https://api.github.com/users/iamjigz")
+        .success(function(data) {
+          if (data.name == "") data.name = data.login;
+          $scope.user = data;
+          $scope.loaded = true;
+        })
+        .error(function() {
+          $scope.userNotFound = true;
         });
 
-        $http.get("https://api.github.com/repos/iamjigz/jigz/readme").success(function (data) {
-           $scope.readme = data;
-        });
+      $http.get("https://api.github.com/repos/iamjigz/jigz/commits").success(function(data) {
+        $scope.commits = data;
+        $scope.commitsFound = data.length > 0;
+        $scope.limit = 5;
+        $scope.maxLimit = data.length;
+      });
+
+      GitReadme.getReadme().then(function(resp) {
+        $scope.readme = $sce.trustAsHtml(resp.data);
+      }).catch(function(resp) {
+        console.log("catch", resp);
+      });
+
     }
- })
+  })
+
+  .service('GitReadme', function($http) {
+    return {
+      getReadme: function() {
+        return $http.get("https://api.github.com/repos/iamjigz/jigz/readme", {
+          headers: {
+            "Accept": "application/vnd.github.v3.raw"
+          }
+        });
+      }
+    };
+  })
 
   .service('$mdShowToast', function($mdToast) {
     return {
       show: function(content) {
-      return $mdToast.show(
-        $mdToast.simple()
+        return $mdToast.show(
+          $mdToast.simple()
           .content(content)
           .action('OK')
           .highlightAction(true)
           .highlightClass('md-accent')
           .position('top right')
           .hideDelay(6000)
-      )}
+        )
+      }
     };
   })
 

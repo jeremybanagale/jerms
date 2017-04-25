@@ -406,7 +406,8 @@
                 </md-card-title>
 
                 <md-card-content ng-show="commitsFound">
-                  <span>{{readme.content}}</span>
+                  <pre ng-bind-html="readme"></pre>
+                  
                   <md-card ng-repeat="commit in commits | limitTo: limit">
                     <md-card-header md-colors="::{backgroundColor: 'accent-100'}">
                       <md-card-avatar ng-show="loaded">
