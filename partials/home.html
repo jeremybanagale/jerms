@@ -1,0 +1,131 @@
+<md-content class="md-padding" layout-xs="column" layout="row">
+  <div flex="" layout="column">
+
+    <md-card>
+      <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
+        <md-card-avatar>
+          <img class="md-user-avatar" src="imgs/profile.jpg">
+        </md-card-avatar>
+
+        <md-card-header-text>
+          <span class="md-title">Jigno Alfred V. Venezuela</span>
+          <span class="md-subhead">Web Developer</span>
+        </md-card-header-text>
+      </md-card-header>
+
+      <img ng-src="imgs/banner.jpg" class="md-card-image">
+
+      <md-card-content layout="row" layout-align="center center" ng-controller="languageCtrl">
+        <ul class="progress" ng-click="languageCtrl.reload()">
+          <li ng-repeat="language in languages" data-name={{language.name}} data-percent={{language.percent}} md-colors="::{color: 'accent'}">
+            <md-tooltip>{{language.percent}} proficient in {{language.name}}.</md-tooltip>
+            <svg viewBox="-10 -10 220 220">
+                      <g fill="none" stroke-width="12" transform="translate(100,100)">
+                        <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+                        <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+                        <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+                        <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+                        <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+                        <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+                      </g>
+                    </svg>
+
+            <svg viewBox="-10 -10 220 220">
+                      <path d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset={{language.offset}}></path>
+                    </svg>
+          </li>
+        </ul>
+
+        <svg width="0" height="0">
+                  <defs>
+                    <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+                        <stop stop-color="#618099"/>
+                        <stop offset="100%" stop-color="#8e6677"/>
+                    </linearGradient>
+                    <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+                        <stop stop-color="#8e6677"/>
+                        <stop offset="100%" stop-color="#9b5e67"/>
+                    </linearGradient>
+                    <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1">
+                        <stop stop-color="#9b5e67"/>
+                        <stop offset="100%" stop-color="#9c787a"/>
+                    </linearGradient>
+                    <linearGradient id="cl4" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0">
+                        <stop stop-color="#9c787a"/>
+                        <stop offset="100%" stop-color="#817a94"/>
+                    </linearGradient>
+                    <linearGradient id="cl5" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
+                        <stop stop-color="#817a94"/>
+                        <stop offset="100%" stop-color="#498a98"/>
+                    </linearGradient>
+                    <linearGradient id="cl6" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="0">
+                        <stop stop-color="#498a98"/>
+                        <stop offset="100%" stop-color="#618099"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+      </md-card-content>
+
+      <md-card>
+        <md-card-header md-colors="::{backgroundColor: 'primary-300'}">
+          <md-card-header-text>
+            <h1 class="md-display-1">Details</h1>
+          </md-card-header-text>
+        </md-card-header>
+
+        <md-card-content>
+          <md-list>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <p md-colors="::{color: 'accent'}">Age: 30</p>
+                <p md-colors="::{color: 'accent'}">Location: Santo Tomas, Batangas</p>
+                <p md-colors="::{color: 'accent'}">Mobile: +639260118502</p>
+                <p md-colors="::{color: 'accent'}">Email: jigzimon@gmail.com</p>
+              </div>
+            </md-list-item>
+          </md-list>
+      </md-card>
+    </md-card>
+
+    <md-card>
+      <md-card-header md-colors="::{backgroundColor: 'primary-500'}">
+        <md-card-header-text>
+          <h1 class="md-display-1">Work Experience</h1>
+        </md-card-header-text>
+      </md-card-header>
+
+      <md-card-content ng-controller="workCtrl">
+        <md-list>
+          <md-list-item ng-repeat-start="exp in exps">
+            <div class="md-list-item-text">
+              <md-card>
+                <md-card-header>
+                  <md-card-avatar>
+                    <i class="material-icons">place</i>
+                  </md-card-avatar>
+
+                  <md-card-header-text md-colors="::{color: 'primary'}">
+                    <span class="md-headline">{{exp.company}}</span>
+                    <span class="md-subhead">{{exp.location}}</span>
+                  </md-card-header-text>
+                </md-card-header>
+
+                <md-card-title>
+                  <md-card-title-text md-colors="::{color: 'accent'}">
+                    <span class="md-title">{{exp.title}}</span>
+                    <span class="md-subhead">{{exp.period}}</span>
+                  </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                  <ol>
+                    <li ng-repeat="task in exp.tasks">{{task.task}}</li>
+                  </ol>
+                </md-card-content>
+              </md-card>
+            </div>
+          </md-list-item>
+          <div ng-repeat-end></div>
+        </md-list>
+      </md-card-content>
+</md-content>

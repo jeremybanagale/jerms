@@ -1,0 +1,73 @@
+<md-content class="md-padding" layout-xs="column" layout="row">
+  <div flex="" layout="column">
+
+    <md-card ng-controller="taskCtrl">
+      <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
+        <md-card-header-text>
+          <span class="md-headline">Planning to take over the world?</span>
+        </md-card-header-text>
+      </md-card-header>
+
+      <md-card-content>
+        <form>
+          <div layout="row" flex>
+            <md-input-container flex class="md-icon-float md-title md-accent">
+              <md-icon class="material-icons">search</md-icon>
+              <input id="description" placeholder="What do you need to do?" ng-model="newTask">
+            </md-input-container>
+          </div>
+
+          <div layout="row" flex>
+            <div flex>
+              <md-datepicker ng-model="newTaskDate" md-placeholder="Enter date"></md-datepicker>
+
+              <md-input-container style="margin-right: 10px;">
+                <label>Choose a category</label>
+                <md-select ng-model="newTaskCategory">
+                  <md-option ng-repeat="obj in categories" value="{{obj.name}}">{{obj.name}}</md-option>
+                </md-select>
+              </md-input-container>
+
+              <md-button class="md-raised md-primary" ng-click="addNew()">
+                Add
+                <md-icon class="material-icons">note_add</md-icon>
+              </md-button>
+
+              <md-button class="md-raised md-accent" ng-click="deleteTask()">
+                Delete
+                <md-icon class="material-icons">delete_forever</md-icon>
+              </md-button>
+            </div>
+          </div>
+        </form>
+
+        <md-list ng-model="taskItem">
+          <md-list-item ng-repeat-start="taskItem in taskItem track by $index">
+            <div flex>
+              <md-card>
+                <md-card-title md-colors="::{backgroundColor: 'primary-100'}">
+                  <md-card-title-text>
+                    <div layout="row" flex>
+                      <md-checkbox class="md-title" ng-model="taskItem.complete" ng-change="save()" aria-label="taskComplete"></md-checkbox>
+                      <span class="md-headline">{{taskItem.description}}</span>
+                    </div>
+                  </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content layout="row" layout-align="end center" md-colors="::{backgroundColor: 'accent-100'}">
+                  <span class="md-subhead">{{taskItem.category}}</span>
+                  <i class="material-icons">date_range</i>
+                  <span class="md-subhead">
+                  {{taskItem.date | date : 'mediumDate'}}
+                </span>
+                </md-card-content>
+              </md-card>
+            </div>
+          </md-list-item>
+          <div ng-repeat-end></div>
+        </md-list>
+
+      </md-card-content>
+
+  </div>
+</md-content>
