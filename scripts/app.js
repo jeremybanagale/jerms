@@ -149,7 +149,12 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate"])
         $http.get("https://api.github.com/repos/iamjigz/jigz/commits").success(function (data) {
            $scope.commits = data;
            $scope.commitsFound = data.length > 0;
-           console.log(data);
+           $scope.limit = 5;
+           $scope.maxLimit = data.length;
+        });
+
+        $http.get("https://api.github.com/repos/iamjigz/jigz/readme").success(function (data) {
+           $scope.readme = data;
         });
     }
  })
