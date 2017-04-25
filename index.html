@@ -20,7 +20,7 @@
 <body ng-cloak>
   <md-content flex ng-controller="themeCtrl" md-theme="{{theme}}" md-theme-watch="true">
 
-    <md-toolbar md-scroll-shrink="">
+    <md-toolbar md-scroll-shrink>
       <div class="md-toolbar-tools">
         <h2 flex md-truncate>Portfolio Page</h2>
 
@@ -34,10 +34,10 @@
       </div>
     </md-toolbar>
 
-    <md-tabs md-dynamic-height="" md-border-bottom="">
+    <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="overview">
         <md-content class="md-padding" layout-xs="column" layout="row">
-          <div flex="" layout="column">
+          <div flex layout="column">
 
             <md-card>
               <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
@@ -171,7 +171,7 @@
 
       <md-tab label="skills list">
         <md-content class="md-padding" layout-xs="column" layout="row">
-          <div flex="" layout="column">
+          <div flex layout="column">
             <md-card>
               <md-card-title md-colors="::{backgroundColor: 'primary-700'}">
                 <md-card-title-text>
@@ -199,7 +199,7 @@
 
       <md-tab label="wiki search">
         <md-content class="md-padding" layout-xs="column" layout="row">
-          <div flex="" layout="column">
+          <div flex layout="column">
             <md-card>
               <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
                 <md-card-header-text>
@@ -241,7 +241,7 @@
 
       <md-tab label="todo">
         <md-content class="md-padding" layout-xs="column" layout="row">
-          <div flex="" layout="column">
+          <div flex layout="column">
 
             <md-card ng-controller="taskCtrl">
               <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
@@ -317,7 +317,7 @@
 
       <md-tab label="github">
         <md-content class="md-padding" layout-xs="column" layout="row">
-          <div flex="" layout="column">
+          <div flex layout="column">
 
             <md-content ng-controller="githubCtrl">
               <md-toolbar md-scroll-shrink>
@@ -404,63 +404,8 @@
       </md-tab>
 
       <md-tab label="contact">
-        <md-content class="md-padding" layout-xs="column" layout="row">
-          <div flex="" layout="column">
-            <md-card ng-controller="chanceCtrl">
-              <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
-                <md-card-header-text>
-                  <h1 md-truncate class="md-title">Would you hire me?</h1>
-                  <md-button ng-click="chance = chance + 1" class="md-raised md-accent">{{title}} {{chance}}0%</md-button>
-                </md-card-header-text>
-              </md-card-header>
 
-              <md-card-title md-colors="::{backgroundColor: 'primary-300'}">
-                <md-card-title-text>
-                  <h1 class="md-title">Social Links:</h1>
-                </md-card-title-text>
-              </md-card-title>
-
-              <md-card-content>
-                <md-grid-list md-cols="5" md-gutter="1em" md-row-height="4:3" md-colors="::{color: 'accent'}">
-                  <md-grid-tile>
-                    <md-button ng-href="https://www.facebook.com/jigzimon" target="_blank">
-                      <md-tooltip>Facebook</md-tooltip>
-                      <i class="fa fa-4x fa-facebook-square"></i>
-                    </md-button>
-                  </md-grid-tile>
-
-                  <md-grid-tile>
-                    <md-button ng-href="https://www.linkedin.com/in/jigno-alfred-venezuela-757600b3/" target="_blank">
-                      <md-tooltip>LinkedIn</md-tooltip>
-                      <i class="fa fa-4x fa-linkedin-square"></i>
-                    </md-button>
-                  </md-grid-tile>
-
-                  <md-grid-tile>
-                    <md-button ng-href="https://github.com/iamjigz" target="_blank">
-                      <md-tooltip>Github</md-tooltip>
-                      <i class="fa fa-4x fa-github-alt"></i>
-                    </md-button>
-                  </md-grid-tile>
-
-                  <md-grid-tile>
-                    <md-button ng-href="http://codepen.io/iamjigz/" target="_blank">
-                      <md-tooltip>Codepen</md-tooltip>
-                      <i class="fa fa-4x fa-codepen"></i>
-                    </md-button>
-                  </md-grid-tile>
-
-                  <md-grid-tile>
-                    <md-button ng-href="http://stackoverflow.com/users/4918036/jigno-alfred-venezuela" target="_blank">
-                      <md-tooltip>Stack Overflow</md-tooltip>
-                      <i class="fa fa-4x fa-stack-overflow"></i>
-                    </md-button>
-                  </md-grid-tile>
-                </md-grid-list>
-              </md-card-content>
-            </md-card>
-          </div>
-        </md-content>
+        <div ng-include="'partials/contact.htm'"></div>
 
       </md-tab>
     </md-tabs>

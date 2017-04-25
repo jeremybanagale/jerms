@@ -148,8 +148,6 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
 
       $http.get("https://api.github.com/repos/iamjigz/jigz/commits").success(function(data) {
         $scope.commits = data;
-        console.log(data.commit);
-        console.log(data['commit']);
         $scope.commitsFound = data.length > 0;
         $scope.limit = 5;
         $scope.maxLimit = data.length;
@@ -224,39 +222,11 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
     $mdThemingProvider.alwaysWatchTheme(true);
   })
 
-  .config(function($stateProvider, $urlRouterProvider) {
-
-      $urlRouterProvider.otherwise('/tab/dash');
-      $stateProvider
-      .state('view1', {
-          url: "/view1",
-          templateUrl: "partials/view1.html"
-      })
-      .state('view2', {
-          url: "/view2",
-          templateUrl: "partials/view2.html"
-      })
-      .state('view3', {
-          url: "/view3",
-          templateUrl: "partials/view3.html"
-      })
-      ;
-  })
-
-  .controller('tabCtrl', function($scope, $location, $log) {
-       $scope.selectedIndex = 0;
-
-       $scope.$watch('selectedIndex', function(current, old) {
-           switch (current) {
-               case 0:
-                   $location.url("/view1");
-                   break;
-               case 1:
-                   $location.url("/view2");
-                   break;
-               case 2:
-                   $location.url("/view3");
-                   break;
-           }
-       });
-   })
+//   .directive("contactView", function() {
+//   return {
+//     restrict: 'A',
+//     templateUrl: 'partials/contact.html',
+//     scope: true,
+//     transclude : false
+//   };
+// })
