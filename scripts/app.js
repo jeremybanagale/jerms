@@ -1,4 +1,9 @@
 angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.router"])
+  .controller('appCtrl', function($scope) {
+    $scope.info = profile.info;
+    $scope.social = profile.social;
+  })
+
   .controller('themeCtrl', function($scope) {
     $scope.theme = 'default';
     $scope.changeTheme = function() {
@@ -13,7 +18,6 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
 
   .controller('workCtrl', function($scope) {
     $scope.exps = workExp;
-
   })
 
   .controller('skillsCtrl', function($scope) {
@@ -141,7 +145,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
         console.log("catch", res);
       });
 
-      getGit.getRepo().then(function(res) {
+      getGit.getCommits().then(function(res) {
         $scope.commits = res.data;
         $scope.commitsFound = res.data.length > 0;
         $scope.limit = 5;
@@ -150,8 +154,14 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
         console.log("catch", res);
       });
 
-      getGit.getReadme().then(function(res) {
+      getGit.getReadme(true).then(function(res) {
         $scope.readme = $sce.trustAsHtml(res.data);
+        getGit.getReadme().then(function(res) {
+          $scope.readmeInfo = res.data;
+          console.log(res.data);
+        }).catch(function(res) {
+          console.log("catch", res);
+        });
       }).catch(function(res) {
         console.log("catch", res);
       });
@@ -161,17 +171,21 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
 
   .service('getGit', function($http) {
     return {
-      getReadme: function() {
-        return $http.get("https://api.github.com/repos/iamjigz/jigz/readme", {
-          headers: {
-            "Accept": "application/vnd.github.v3.raw"
-          }
-        });
+      getReadme: function(bool) {
+        if (bool === true) {
+          return $http.get("https://api.github.com/repos/iamjigz/jigz/readme", {
+            headers: {
+              "Accept": "application/vnd.github.v3.raw"
+            }
+          });
+        } else {
+          return $http.get("https://api.github.com/repos/iamjigz/jigz/readme");
+        }
       },
       getUser: function() {
         return $http.get("https://api.github.com/users/iamjigz");
       },
-      getRepo: function() {
+      getCommits: function() {
         return $http.get("https://api.github.com/repos/iamjigz/jigz/commits");
       }
     };

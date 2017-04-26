@@ -1,8 +1,22 @@
-var personalInfo = [{
-  first_name: "Jigno Alfred",
-  middle_name: "Villaueva",
-  last_name: "Venezuela"
-}];
+var profile = {
+  info: {
+    first_name: "Jigno Alfred",
+    middle_name: "Villaueva",
+    last_name: "Venezuela",
+    title: "Web Developer",
+    age: "30",
+    location: "Santo Tomas, Batangas",
+    mobile: "+639260118502",
+    email: "jigzimon@gmail.com"
+  },
+  social: {
+    facebook: "https://www.facebook.com/jigzimon",
+    linkedin: "https://www.linkedin.com/in/jigno-alfred-venezuela-757600b3/",
+    github: "https://github.com/iamjigz",
+    codepen: "http://codepen.io/iamjigz/",
+    stack_overflow: "http://stackoverflow.com/users/4918036/jigno-alfred-venezuela"
+  }
+};
 
 var workExp = [{
   company: "Big Outsource",
