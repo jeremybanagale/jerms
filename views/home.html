@@ -1,5 +1,5 @@
 <md-content class="md-padding" layout-xs="column" layout="row">
-  <div flex="" layout="column">
+  <div flex layout="column">
 
     <md-card>
       <md-card-header md-colors="::{backgroundColor: 'primary-700'}">
@@ -8,8 +8,8 @@
         </md-card-avatar>
 
         <md-card-header-text>
-          <span class="md-title">Jigno Alfred V. Venezuela</span>
-          <span class="md-subhead">Web Developer</span>
+          <span class="md-title">{{info.first_name}} {{info.middle_name.charAt(0)}}. {{info.last_name}}</span>
+          <span class="md-subhead">{{info.title}}</span>
         </md-card-header-text>
       </md-card-header>
 
@@ -77,13 +77,55 @@
           <md-list>
             <md-list-item class="md-2-line">
               <div class="md-list-item-text">
-                <p md-colors="::{color: 'accent'}">Age: 30</p>
-                <p md-colors="::{color: 'accent'}">Location: Santo Tomas, Batangas</p>
-                <p md-colors="::{color: 'accent'}">Mobile: +639260118502</p>
-                <p md-colors="::{color: 'accent'}">Email: jigzimon@gmail.com</p>
+                <p md-colors="::{color: 'accent'}">Age: {{info.age}}</p>
+                <p md-colors="::{color: 'accent'}">Location: {{info.location}}</p>
+                <p md-colors="::{color: 'accent'}">Mobile: {{info.mobile}}</p>
+                <p md-colors="::{color: 'accent'}">Email: {{info.email}}</p>
               </div>
             </md-list-item>
           </md-list>
+        </md-card-content>
+
+        <md-divider></md-divider>
+
+        <md-card-footer>
+          <md-grid-list md-cols="5" md-gutter="1em" md-row-height="4:3" md-colors="::{color: 'accent'}">
+            <md-grid-tile>
+              <md-button ng-href="{{social.facebook}}" target="_blank">
+                <md-tooltip>Facebook</md-tooltip>
+                <i class="fa fa-4x fa-facebook-square"></i>
+              </md-button>
+            </md-grid-tile>
+
+            <md-grid-tile>
+              <md-button ng-href="{{social.linkedin}}" target="_blank">
+                <md-tooltip>LinkedIn</md-tooltip>
+                <i class="fa fa-4x fa-linkedin-square"></i>
+              </md-button>
+            </md-grid-tile>
+
+            <md-grid-tile>
+              <md-button ng-href="{{social.github}}" target="_blank">
+                <md-tooltip>Github</md-tooltip>
+                <i class="fa fa-4x fa-github-alt"></i>
+              </md-button>
+            </md-grid-tile>
+
+            <md-grid-tile>
+              <md-button ng-href="{{social.codepen}}" target="_blank">
+                <md-tooltip>Codepen</md-tooltip>
+                <i class="fa fa-4x fa-codepen"></i>
+              </md-button>
+            </md-grid-tile>
+
+            <md-grid-tile>
+              <md-button ng-href="{{social.stack_overflow}}" target="_blank">
+                <md-tooltip>Stack Overflow</md-tooltip>
+                <i class="fa fa-4x fa-stack-overflow"></i>
+              </md-button>
+            </md-grid-tile>
+          </md-grid-list>
+        </md-card-footer>
       </md-card>
     </md-card>
 
@@ -97,11 +139,11 @@
       <md-card-content ng-controller="workCtrl">
         <md-list>
           <md-list-item ng-repeat-start="exp in exps">
-            <div class="md-list-item-text">
+            <div class="md-list-item-text" flex>
               <md-card>
-                <md-card-header>
+                <md-card-header ng-click="open = !open">
                   <md-card-avatar>
-                    <i class="material-icons">place</i>
+                    <i class="material-icons">expand_more</i>
                   </md-card-avatar>
 
                   <md-card-header-text md-colors="::{color: 'primary'}">
@@ -117,7 +159,7 @@
                   </md-card-title-text>
                 </md-card-title>
 
-                <md-card-content>
+                <md-card-content ng-show="open">
                   <ol>
                     <li ng-repeat="task in exp.tasks">{{task.task}}</li>
                   </ol>
@@ -128,4 +170,5 @@
           <div ng-repeat-end></div>
         </md-list>
       </md-card-content>
+  </div>
 </md-content>
