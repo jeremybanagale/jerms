@@ -3,11 +3,13 @@
     <h2 flex md-truncate>Portfolio Page</h2>
 
     <md-button href="#" class="md-primary md-raised" ng-click="changeTheme()">
-      Random Theme
+      <md-tooltip>Sets a random color scheme for the theme.</md-tooltip>
+      <span>Random Theme</span>
     </md-button>
 
-    <md-switch ng-true-value="'yup'" ng-false-value="'nope'" class="md-accent">
-      <md-tooltip>Switch to Dark Theme</md-tooltip>
-    </md-switch>
+    <md-button class="md-accent md-fab md-mini" aria-label="info" ng-click="showModal($event)">
+      <md-tooltip>Update the profile information</md-tooltip>
+      <md-icon class="material-icons">settings</md-icon>
+    </md-button>
   </div>
 </md-toolbar>

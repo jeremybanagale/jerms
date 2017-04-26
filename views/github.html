@@ -30,7 +30,12 @@
           <md-card-title-text layout="column" layout-align="center center">
             <span class="md-title">Followers: {{user.followers}} - Following: {{user.following}} - Repos: {{user.public_repos}}</span>
             <span class="md-title">Showing last {{limit}} commits...</span>
-            <md-slider flex class="md-primary" ng-model="limit" md-discrete step="5" max="{{maxLimit}}" aria-label="limit"></md-slider>
+            <md-slider-container flex>
+              <md-slider class="md-primary" ng-model="limit" md-discrete step="1" max="{{maxLimit}}" aria-label="limit"></md-slider>
+                <md-input-container>
+                  <input flex type="number" ng-model="limit" aria-label="limit">
+                </md-input-container>
+            </md-slider-container>
           </md-card-title-text>
         </md-card-title>
 
@@ -46,7 +51,7 @@
             </md-card-header>
 
             <md-card-content>
-              <pre ng-bind-html="readme"></pre>
+              <pre ng-bind-html="readme" style="height: 20pc;"></pre>
             </md-card-content>
           </md-card>
 

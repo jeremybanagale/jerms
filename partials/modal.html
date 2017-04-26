@@ -1,34 +1,56 @@
-<md-dialog aria-label="Mango (Fruit)">
+<md-dialog aria-label="modal">
   <form ng-cloak>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>Mango (Fruit)</h2>
+        <h2>Update Profile Information</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
-          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+          <i class="material-icons">close</i>
         </md-button>
       </div>
     </md-toolbar>
 
     <md-dialog-content>
-      <div class="md-dialog-content">
-        <md-input-container class="md-title md-accent">
+      <div class="md-dialog-content md-subhead">
+        <md-input-container class="md-primary">
           <input type="text" ng-model="info.first_name" placeholder="First Name">
+        </md-input-container>
+
+        <md-input-container class="md-primary">
+          <input type="text" ng-model="info.middle_name" placeholder="Middle Name">
+        </md-input-container>
+
+        <md-input-container class="md-primary">
+          <input type="text" ng-model="info.last_name" placeholder="Last Name">
+        </md-input-container>
+
+        <md-divider></md-divider>
+
+        <md-input-container class="md-accent">
+          <input type="text" ng-model="info.age" placeholder="Age">
+        </md-input-container>
+
+        <md-input-container class="md-accent">
+          <input type="text" ng-model="info.location" placeholder="Location">
+        </md-input-container>
+
+        <md-input-container class="md-accent">
+          <input type="text" ng-model="info.mobile" placeholder="Mobile">
+        </md-input-container>
+
+        <md-input-container class="md-accent">
+          <input type="text" ng-model="info.email" placeholder="Email">
         </md-input-container>
       </div>
     </md-dialog-content>
 
-    <md-dialog-actions layout="row">
-      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
-        More on Wikipedia
-      </md-button>
-      <span flex></span>
+    <!-- <md-dialog-actions layout="row" layout-align="end center">
       <md-button ng-click="answer('not useful')">
-       Not Useful
+       Submit
       </md-button>
       <md-button ng-click="answer('useful')">
         Useful
       </md-button>
-    </md-dialog-actions>
+    </md-dialog-actions> -->
   </form>
 </md-dialog>

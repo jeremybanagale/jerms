@@ -1,7 +1,30 @@
 angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.router"])
-  .controller('appCtrl', function($scope) {
+  .controller('appCtrl', function($scope, $mdDialog) {
     $scope.info = profile.info;
     $scope.social = profile.social;
+
+    $scope.showModal = function(ev) {
+      $mdDialog.show({
+        controller: DialogController,
+        templateUrl: 'partials/modal.html',
+        parent: angular.element(document.body),
+        scope: $scope,
+        preserveScope: true,
+        targetEvent: ev,
+        clickOutsideToClose: true,
+        fullscreen: $scope.customFullscreen
+      })
+    };
+
+    function DialogController($scope, $mdDialog) {
+      $scope.hide = function() {
+        $mdDialog.hide();
+      };
+
+      $scope.cancel = function() {
+        $mdDialog.cancel();
+      };
+    }
   })
 
   .controller('themeCtrl', function($scope) {

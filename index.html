@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="portfolioPage">
+<html lang="en" ng-app="portfolioPage" ng-controller="themeCtrl" md-theme="{{theme}}" md-theme-watch="true">
 
 <head>
   <meta charset="UTF-8">
@@ -18,7 +18,7 @@
 </head>
 
 <body ng-cloak ng-controller="appCtrl">
-  <md-content flex ng-controller="themeCtrl" md-theme="{{theme}}" md-theme-watch="true">
+  <md-content flex>
 
     <ng-include src="'partials/toolbar.html'"></ng-include>
 
