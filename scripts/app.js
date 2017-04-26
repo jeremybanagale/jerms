@@ -136,7 +136,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
     $scope.getGitInfo = function() {
       $scope.loaded = false;
 
-      getGit.getUser().then(function(res) {
+      getGit.getData("https://api.github.com/users/iamjigz").then(function(res) {
         if (res.data.name == "") res.data.name = res.data.login;
 
         $scope.user = res.data;
@@ -145,7 +145,7 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
         console.log("catch", res);
       });
 
-      getGit.getCommits().then(function(res) {
+      getGit.getData("https://api.github.com/repos/iamjigz/jigz/commits").then(function(res) {
         $scope.commits = res.data;
         $scope.commitsFound = res.data.length > 0;
         $scope.limit = 5;
@@ -154,9 +154,9 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
         console.log("catch", res);
       });
 
-      getGit.getReadme(true).then(function(res) {
+      getGit.getData("https://api.github.com/repos/iamjigz/jigz/readme", true).then(function(res) {
         $scope.readme = $sce.trustAsHtml(res.data);
-        getGit.getReadme().then(function(res) {
+        getGit.getData("https://api.github.com/repos/iamjigz/jigz/readme").then(function(res) {
           $scope.readmeInfo = res.data;
           console.log(res.data);
         }).catch(function(res) {
@@ -165,28 +165,21 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
       }).catch(function(res) {
         console.log("catch", res);
       });
-
     }
   })
 
   .service('getGit', function($http) {
     return {
-      getReadme: function(bool) {
+      getData: function(link, bool) {
         if (bool === true) {
-          return $http.get("https://api.github.com/repos/iamjigz/jigz/readme", {
+          return $http.get(link, {
             headers: {
               "Accept": "application/vnd.github.v3.raw"
             }
           });
         } else {
-          return $http.get("https://api.github.com/repos/iamjigz/jigz/readme");
+          return $http.get(link);
         }
-      },
-      getUser: function() {
-        return $http.get("https://api.github.com/users/iamjigz");
-      },
-      getCommits: function() {
-        return $http.get("https://api.github.com/repos/iamjigz/jigz/commits");
       }
     };
   })
