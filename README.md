@@ -4,6 +4,23 @@
 is my personal portfolio page.
 You will most likely find it hosted in [GitHub Pages](iamjigz.github.io/jigz).
 
+## Usage
+
+If you want to run the project locally, you need to serve the code from a web server
+and access it on localhost.
+
+If you have a NodeJS setup, you can use [http-server](https://github.com/indexzero/http-server).
+
+Just run
+```
+npm install http-server -g
+```
+
+then on your terminal
+```
+http-server C:\location\to\app
+```
+
 ## Built With
 
 * [GitHub Pages](http://pages.github.com/) - The free hosting from GitHub.
