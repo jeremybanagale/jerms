@@ -8,13 +8,16 @@
     <md-card-content>
       <md-list-item class="md-3-line" ng-click="null">
         <div class="md-list-item-text">
-          <p><h3>Firstname : {{info.first_name}}</p>
-          <p><h3>Surname : {{info.last_name}}</p>
-          <p><h3>Middlename : {{info.middle_name}}</p>
-          <p><h3>Age : {{info.age}}</p>
-          <p><h3>Address : {{info.location}}</p>
-          <p><h3>Contact #: {{info.mobile}}</p>
-          <p><h3>e-mail : {{info.email}}</p>
+
+            <div align="center">
+      				<img src="{{info.icon}}">
+      			</div>
+            <h2>Company:      {{info.company}}</h2>
+            <pre>
+            <h5>Location:     {{info.company_location}}</h5>
+            <h5>title:        {{info.company_title}}</h5>
+            <h5>period:       {{info.period}}</h5>
+          </pre>
         </div>
       </md-list-item>
     </md-card-content>

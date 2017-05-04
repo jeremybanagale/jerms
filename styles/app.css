@@ -15,6 +15,18 @@ body {
     max-width: 700px;
     margin: 20px auto;
 }
+.size{
+  max-height: 70px;
+  max-width: 70px;
+}
+.profile_size{
+  height: 50px;
+  width: 50px;
+}
+.company_size{
+  height: 100px;
+  width: 100px;
+}
 .banner{
   background-image: url("../imgs/background.jpg");
 
@@ -29,6 +41,9 @@ body {
 }
 .contact{
     text-align: center;
+}
+a{
+  margin: 10;
 }
 /* ----- navigation ----- */
 h1{
@@ -629,6 +644,19 @@ section {
   display: inline-block;
   margin-right: 5px;
 }
+.model-6 .tooltip:after {
+  content: "" attr(tooltip) "";
+  margin-left: 3px;
+  color: #9c88f7;
+}
+.model-6 .tooltip:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #9c88f7;
+  display: inline-block;
+  margin-right: 5px;
+}
 .graph {
   width: 300px;
   height: 150px;
@@ -778,6 +806,15 @@ section.model-5 .graph:before {
   -webkit-transform: rotate(108deg);
   transform: rotate(108deg);
   border-color: #930801;
+}
+section.model-6 .graph {
+  color: #9c88f7;
+}
+section.model-6 .graph:before {
+  -ms-transform: rotate(144deg);
+  -webkit-transform: rotate(144deg);
+  transform: rotate(144deg);
+  border-color: #9c88f7;
 }
 /*section.model-3 .javaScript:before {
   -ms-transform: rotate(90deg);

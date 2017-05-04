@@ -1,0 +1,21 @@
+<div>
+  <md-card>
+    <md-card-header>
+      <md-card-header-text>
+        <h3 align="center"></h3>
+      </md-card-header-text>
+    </md-card-header>
+      <md-card-content class="form-search" ng-controller="schoolsCtrl">
+        <md-list>
+          <md-list-item class="animate" ng-repeat="school in schools">
+            <md-card-avatar>
+              <img src="{{school.icon}}" class="size">
+            </md-card-avatar>
+            <h3>{{school.name}}</h3>
+            <h5>S.Y.{{school.sy}}</h5>
+            <md-divider></md-divider>
+          </md-list-item>
+        </md-list>
+      </md-card-content>
+  <md-card>
+</div>

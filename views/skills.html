@@ -2,43 +2,56 @@
   <md-card>
     <md-card-header>
       <md-card-header-text>
-        <h5 align="center">Languages</h5>
+        <h3 align="center">Languages</h3>
       </md-card-header-text>
     </md-card-header>
     <md-card-content>
-      <md-list-item class="md-3-line" ng-click="null">
+      <md-card-content class="form-search" ng-controller="skillsCtrl">
+        <md-list>
+          <md-list-item class="animate" ng-repeat="skill in skills | filter:search">
+            <a href={{skill.url}} target="blank" md-colors="::{color: 'primary'}"><h3>{{skill.name}}</h3></a>
+            <md-divider></md-divider>
+          </md-list-item>
+        </md-list>
+      </md-card-content>
         <div class="base" align="center">
 
           <section class="model-1">
             <md-card-avatar align="center">
-              <img ng-src="imgs/html5.png" class="md-user-avatar">
+              <img ng-src="imgs/html5.png" class="size md-user-avatar">
             </md-card-avatar>
 
             <div class="graph">HTML5</div><span tooltip="90%" class="tooltip">HTML5</span>
           </section>
           <section class="model-2">
             <md-card-avatar align="center">
-              <img ng-src="imgs/css3.png" class="md-user-avatar">
+              <img ng-src="imgs/css3.png" class="size md-user-avatar">
             </md-card-avatar>
             <div class="graph">CSS3</div><span tooltip="60%" class="tooltip">CSS3</span>
           </section>
           <section class="model-3">
             <md-card-avatar align="center">
-              <img ng-src="imgs/JQuery.jpeg" class="md-user-avatar">
+              <img ng-src="imgs/JQuery.jpeg" class="size md-user-avatar">
             </md-card-avatar>
             <div class="graph">JQuery</div><span tooltip="70%" class="tooltip">JQuery</span>
           </section>
           <section class="model-4">
             <md-card-avatar align="center">
-              <img ng-src="imgs/JS.png" class="md-user-avatar">
+              <img ng-src="imgs/JS.png" class="size md-user-avatar">
             </md-card-avatar>
             <div class="graph">Javascript</div><span tooltip="50%" class="tooltip">JavaScript</span>
           </section>
           <section class="model-5">
             <md-card-avatar align="center">
-              <img ng-src="imgs/angularjs.png" class="md-user-avatar">
+              <img ng-src="imgs/angularjs.png" class="size md-user-avatar">
             </md-card-avatar>
             <div class="graph">AngularJS</div><span tooltip="60%" class="tooltip">AngularJS</span>
+          </section>
+          <section class="model-6">
+            <md-card-avatar align="center">
+              <img ng-src="imgs/php.png" class="size md-user-avatar">
+            </md-card-avatar>
+            <div class="graph">PHP</div><span tooltip="80%" class="tooltip">PHP</span>
           </section>
         </div>
       </md-list-item>

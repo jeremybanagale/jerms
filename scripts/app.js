@@ -7,24 +7,24 @@ $(function(){
 		});
 		$('.list li:nth-child(2)').click(function(){
 			 window.setTimeout(function(){
-			$('.skills').slideToggle();
+			$('.educ').slideToggle();
 					},300);
 		});
 		$('.list li:nth-child(3)').click(function(){
 			 window.setTimeout(function(){
-			$('.social').slideToggle();
+			$('.skills').slideToggle();
 					},300);
 		});
-		// $('.list li:nth-child(4)').click(function(){
-		// 	 window.setTimeout(function(){
-		// 	$('.awards').slideToggle();
-		// 		}, 300);
-		// });
-		// $('.list li:nth-child(5)').click(function(){
-		// 	 window.setTimeout(function(){
-		// 	$('.quotes').slideToggle();
-		// 		}, 300);
-		// });
+		$('.list li:nth-child(4)').click(function(){
+			 window.setTimeout(function(){
+			$('.workexp').slideToggle();
+				}, 300);
+		});
+		$('.list li:nth-child(5)').click(function(){
+			 window.setTimeout(function(){
+			$('.social').slideToggle();
+				}, 300);
+		});
 		$('.btn-close').click(function(){
 			$('.list-content').hide(300);
 		});
@@ -71,12 +71,15 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
     };
   })
 
-  .controller('workCtrl', function($scope) {
-    $scope.exps = workExp;
-  })
+  // .controller('workCtrl', function($scope) {
+  //   $scope.exps = workExp;
+  // })
 
   .controller('skillsCtrl', function($scope) {
     $scope.skills = skills;
+  })
+	.controller('schoolsCtrl', function($scope) {
+    $scope.schools = schools;
   })
 
   .controller('languageCtrl', function($scope) {
