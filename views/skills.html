@@ -1,25 +1,28 @@
-<md-content class="md-padding" layout-xs="column" layout="row">
-  <div flex layout="column">
-    <md-card>
-      <md-card-title md-colors="::{backgroundColor: 'primary-700'}">
-        <md-card-title-text>
-          <span class="md-title">Additional frameworks, libraries, and technologies...</span>
-        </md-card-title-text>
-      </md-card-title>
+<div>
+  <md-card>
+    <md-card-header>
+      <md-card-header-text>
+        <span align="center">Languages</span>
+      </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+      <md-list-item class="md-3-line" ng-click="null">
+        <div class="base" align="center">
 
-      <md-card-content class="form-search" ng-controller="skillsCtrl">
-        <md-input-container class="md-title md-accent">
-          <md-tooltip>Do I have the skills you need?</md-tooltip>
-          <input id="skill-search" type="text" ng-model="search" placeholder="Search skills">
-        </md-input-container>
-
-        <md-list md-colors="::{backgroundColor: 'accent-100'}">
-          <md-list-item class="animate" ng-repeat="skill in skills | filter:search">
-            <a href={{skill.url}} target="blank" md-colors="::{color: 'primary'}">{{skill.name}}</a>
-            <md-divider></md-divider>
-          </md-list-item>
-        </md-list>
-      </md-card-content>
-    </md-card>
-  </div>
-</md-content>
+          <section class="model-1">
+            <div class="graph">HTML5</div><span tooltip="90%" class="tooltip">HTML5</span>
+          </section>
+          <section class="model-2">
+            <div class="graph">CSS</div><span tooltip="60%" class="tooltip">CSS</span>
+          </section>
+          <section class="model-3">
+            <div class="graph">JQuery</div><span tooltip="70%" class="tooltip">JQuery</span>
+          </section>
+          <section class="model-4">
+            <div class="graph">Javascript</div><span tooltip="50%" class="tooltip">JavaScript</span>
+          </section>
+        </div>
+      </md-list-item>
+    </md-card-content>
+  <md-card>
+</div>

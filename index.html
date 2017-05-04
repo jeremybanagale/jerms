@@ -19,32 +19,68 @@
 
 <body ng-cloak ng-controller="appCtrl">
   <md-content flex>
+    <ng-include src="'partials/header.html'"></ng-include>
 
-    <ng-include src="'partials/toolbar.html'"></ng-include>
+    <!-- <md-tabs md-dynamic-height md-border-bottom> -->
 
-    <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="overview">
-        <ng-include src="'views/home.html'"></ng-include>
-      </md-tab>
+      <!-- <md-tabs md-dynamic-height md-border-bottom class="gray">
+        <md-tab label="overview">
+                <ng-include src="'views/info.html'"></ng-include>
+        </md-tab> -->
 
-      <md-tab label="skills list">
-        <ng-include src="'views/skills.html'"></ng-include>
-      </md-tab>
+        <!-- <md-tab label="skills">
+                <ng-include src="'views/info.html'"></ng-include>
+        </md-tab>
+        <md-tab label="overview">
+                <ng-include src="'views/info.html'"></ng-include>
+        </md-tab>
+        <md-tab label="overview">
+                <ng-include src="'views/info.html'"></ng-include> -->
+        <!-- </md-tab>
+      </md-tab> -->
 
-      <md-tab label="wiki search">
-        <ng-include src="'views/wiki.html'"></ng-include>
-      </md-tab>
-
-      <md-tab label="todo">
-        <ng-include src="'views/todo.html'"></ng-include>
-      </md-tab>
-
-      <md-tab label="github">
-        <ng-include src="'views/github.html'"></ng-include>
-      </md-tab>
-
-    </md-tabs>
+    <!-- </md-tabs> -->
   </md-content>
+  <div class="front">
+    <div class="list">
+				<ul>
+					<li><a><i class="fa fa-user"></i>&nbsp;Profile</a></li>
+					<li><a><i class="fa fa-gear"></i>&nbsp;Skills</a></li>
+					<li><a><i class="fa fa-film"></i>&nbsp;Social</a></li>
+
+				</ul>
+		</div>
+  </div>
+  <div class="list-content profile">
+			<h3>Profile</h3>
+			<div align="center" class="img-rounded">
+				<img src="imgs/profile.jpeg" alt="image">
+			</div>
+
+				<ng-include src="'views/info.html'"></ng-include>
+			<p>You might not think that programmers are artists, but programming is an extremely creative profession. It's logic based creativity -John Romero</p>
+			<a class="btn-close"><i class="fa fa-times"></i></a>
+	</div>
+  <div class="list-content skills">
+			<h3>Skills</h3>
+			<div align="center" class="img-rounded">
+				<img src="imgs/profile.jpeg" alt="image">
+			</div>
+
+				<ng-include src="'views/skills.html'"></ng-include>
+			<p>You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future. -Steve Jobs</p>
+			<a class="btn-close"><i class="fa fa-times"></i></a>
+	</div>
+  <div class="list-content social">
+			<h3>Social</h3>
+			<div align="center" class="img-rounded">
+				<img src="imgs/profile.jpeg" alt="image">
+			</div>
+
+				<ng-include src="'views/social.html'"></ng-include>
+			<p>Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program. -Linus Torvalds</p>
+			<a class="btn-close"><i class="fa fa-times"></i></a>
+	</div>
 </body>
 
 <footer>
@@ -59,6 +95,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+
 
 <script src="scripts/app.js"></script>
 <script src="scripts/data.js"></script>

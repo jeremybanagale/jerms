@@ -1,3 +1,35 @@
+
+$(function(){
+		$('.list li:first-child').click(function(){
+			 window.setTimeout(function() {
+           $('.profile').slideToggle();
+                }, 300);
+		});
+		$('.list li:nth-child(2)').click(function(){
+			 window.setTimeout(function(){
+			$('.skills').slideToggle();
+					},300);
+		});
+		$('.list li:nth-child(3)').click(function(){
+			 window.setTimeout(function(){
+			$('.social').slideToggle();
+					},300);
+		});
+		// $('.list li:nth-child(4)').click(function(){
+		// 	 window.setTimeout(function(){
+		// 	$('.awards').slideToggle();
+		// 		}, 300);
+		// });
+		// $('.list li:nth-child(5)').click(function(){
+		// 	 window.setTimeout(function(){
+		// 	$('.quotes').slideToggle();
+		// 		}, 300);
+		// });
+		$('.btn-close').click(function(){
+			$('.list-content').hide(300);
+		});
+	});
+
 angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.router"])
   .controller('appCtrl', function($scope, $mdDialog) {
     $scope.info = profile.info;
@@ -225,32 +257,113 @@ angular.module("portfolioPage", ["ngMaterial", "ngResource", "ngAnimate", "ui.ro
 
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
-      .primaryPalette('green')
-      .accentPalette('deep-orange');
+      .primaryPalette('amber')
+      .accentPalette('blue-grey');
 
-    $mdThemingProvider.theme('indigo')
-      .primaryPalette('indigo')
-      .accentPalette('pink');
-
-    $mdThemingProvider.theme('lime')
-      .primaryPalette('lime')
-      .accentPalette('deep-orange')
-
-    $mdThemingProvider.theme('orange')
-      .primaryPalette('orange')
-      .accentPalette('red')
-
-    $mdThemingProvider.theme('cyan')
-      .primaryPalette('cyan')
-      .accentPalette('indigo')
-
-    $mdThemingProvider.theme('pink')
-      .primaryPalette('pink')
-      .accentPalette('deep-purple')
-
-    $mdThemingProvider.theme('brown')
-      .primaryPalette('brown')
-      .accentPalette('grey')
+    // $mdThemingProvider.theme('indigo')
+    //   .primaryPalette('indigo')
+    //   .accentPalette('pink');
+    //
+    // $mdThemingProvider.theme('lime')
+    //   .primaryPalette('lime')
+    //   .accentPalette('deep-orange')
+    //
+    // $mdThemingProvider.theme('orange')
+    //   .primaryPalette('orange')
+    //   .accentPalette('red')
+    //
+    // $mdThemingProvider.theme('cyan')
+    //   .primaryPalette('cyan')
+    //   .accentPalette('indigo')
+    //
+    // $mdThemingProvider.theme('pink')
+    //   .primaryPalette('pink')
+    //   .accentPalette('deep-purple')
+    //
+    // $mdThemingProvider.theme('brown')
+    //   .primaryPalette('brown')
+    //   .accentPalette('grey')
 
     $mdThemingProvider.alwaysWatchTheme(true);
-  })
+  });
+	// var myCanvas = document.getElementById("J-svg-pentagon");
+	// var context =  myCanvas.getContext("2d");
+	//
+	//
+	// function drawPath(x, y, n, r, style) {
+	//     var i,ang;
+	//     ang = Math.PI*2/n
+	//     context.save();
+	//
+	//     for( var styleList in style) {
+	//         context[styleList] = style[styleList];
+	//     }
+	//     context.translate(x, y);
+	//     context.moveTo(0, -r);
+	//     context.beginPath();
+	//     for(i = 0;i < n; i ++) {
+	//         context.rotate(ang)
+	//         context.lineTo(0, -r);
+	//     }
+	//     context.closePath();
+	//     context.stroke();
+	//     context.fill();
+	//     context.restore();
+	// }
+	// //
+	// drawPath(250, 250, 5, 240, {
+	//     fillStyle: 'rgba(243, 231, 206, 1)',
+	//     lineWidth: '2',
+	//     strokeStyle: 'rgba(247, 206, 158, 1)'
+	// });
+	// drawPath(250, 250, 5, 200, {
+	//     fillStyle: '#F6DFAD',
+	//     strokeStyle: 'rgba(255, 255, 255, 0)'
+	// });
+	// drawPath(250, 250, 5, 160, {
+	//     fillStyle: '#F7D792',
+	//     strokeStyle: 'rgba(255, 255, 255, 0)'
+	// });
+	// drawPath(250, 250, 5, 120, {
+	//     fillStyle: '#F7CF80',
+	//     strokeStyle: 'rgba(255, 255, 255, 0)'
+	// });
+	// drawPath(250, 250, 5, 80, {
+	//     fillStyle: '#F8C96D',
+	//     strokeStyle: 'rgba(255, 255, 255, 0)'
+	// });
+	// drawPath(250, 250, 5, 40, {
+	//     fillStyle: '#F8C662',
+	//     strokeStyle: 'rgba(255, 255, 255, 0)'
+	// });
+	//
+	// var ability = {
+	//     num : [3.521,3.12,2.5,3,4.79],
+	//     style: {
+	//         fillStyle: 'rgba(255, 158, 92, .5)',
+	//         lineWidth: '2',
+	//         strokeStyle: '#FD7A42'
+	//     }
+	// }
+	function setAbility(x, y, n, r, style, ability) {
+	    var i,ang;
+	    ang = Math.PI*2/5
+	    context.save();
+	    //set style
+	    for( var styleList in style) {
+	        context[styleList] = style[styleList];
+	    }
+	    context.translate(x, y);
+	    context.moveTo(0, -parseFloat(ability[0] * 40 + 40));
+	    context.beginPath();
+	    //5*40+40
+	    for(i = 0;i < n; i ++) {
+	        context.rotate(ang)
+	        context.lineTo(0, -parseFloat(ability[i] * 40 + 40));
+	    }
+	    context.closePath();
+	    context.stroke();
+	    context.fill();
+	    context.restore();
+	}
+	setAbility(250, 250, 5, 100, ability.style, ability.num);
